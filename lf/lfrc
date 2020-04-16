@@ -1,0 +1,235 @@
+# interpreter for shell commands (needs to be POSIX compatible)
+set shell bash
+
+set color256 true
+set icons true
+# set preview false
+# set previewer ~/scripts/lf/preview
+#set previewer pistol
+# set hidden true
+set color256 true
+set drawbox true
+set icons true
+set ignorecase true
+
+# set '-eu' options for shell commands
+# These options are used to have safer shell commands. Option '-e' is used to
+# exit on error and option '-u' is used to give error for unset variables.
+# Option '-f' disables pathname expansion which can be useful when $f, $fs, and
+# $fx variables contain names with '*' or '?' characters. However, this option
+# is used selectively within individual commands as it can be limiting at
+# times.
+set shellopts '-eu'
+
+cmd open ${{
+    case $(file --mime-type $f -b) in
+        text/*) $EDITOR $fx;;
+        image/*) nomacs $fx;;
+        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+# define a custom 'rename' command without prompt for overwrite
+# cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
+# map r push :rename<space>
+
+
+
+
+# Archive bindings
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+
+cmd teste ${{
+	
+}}
+
+# cmd zip %zip -r "$f.zip" "$f"
+# cmd tar %tar cvf "$f.tar" "$f"
+# cmd targz %tar cvzf "$f.tar.gz" "$f"
+# cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
+cmd zip ${{
+	zip -r "$f.zip" "`basename $f`"
+}}
+cmd tar ${{
+	tar cvf "$f.tar" "`basename $f`"
+}}
+cmd targz ${{
+	tar cvzf "$f.tar.gz" "`basename $f`"
+}}
+cmd tarbz2 ${{
+	tar cjvf "$f.tar.bz2" "`basename $f`"
+}}
+
+#
+#
+# Custom Functions
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) vim "$f";;
+        video/*|image/*/application/pdf) xdg-open "$f" & disown;;
+        *) xdg-open "$f" ;;
+    esac
+}}
+
+
+cmd stripspace %~/.scripts/stripspace.sh "$f"
+
+# Trash cli bindings
+cmd trash ${{
+  for file in $fx
+  do
+    trash-put $file
+  done
+}}
+
+cmd clear_trash %trash-empty
+
+cmd restore_trash ${{
+  trash-restore
+}}
+
+# Bindings
+
+#File openers
+map ee $$EDITOR "$f"
+
+# leave some space at the top and the bottom of the screen
+# set scrolloff 10
+
+
+# BINDINGS
+
+# Remove some defaults
+map m
+map o
+map n
+map "'"
+map '"'
+map d
+map c
+map e
+map f
+
+#General Funtions
+map mf mkfile
+map md mkdir
+
+# Basic Functions
+map '!' shell
+map . set hidden!
+map DD delete
+map p paste
+map x cut
+map y copy
+map <enter> open
+map mf mkfile
+map md mkdir
+map ms $mkscript
+map ch chmod
+map bg setwallpaper
+# map r rename
+#implementar renames por opcoes (extensao, nome etc
+map R reload
+map C clear
+map U unselect
+
+## Archive Mappings
+map az zip
+map at tar
+map ag targz
+map ab tarbz2
+map au unarchive
+#
+# Trash Mappings
+map dd trash
+map tc clear_trash
+map tr restore_trash
+
+map s<space> stripspace
+
+map - $~/.config/lf/draw_image.sh $f
+#
+# Movement
+# map ga cd ~/
+# map gb cd ~/
+map gc cd ~/Projects/system/dotfiles
+map gd cd ~/Downloads
+# map ge cd ~/
+map gf cd ~/Projects/finance
+map gh cd ~/
+# # map gg cd ~/ mapped to gg vim go top
+map gi cd ~/Images
+# map gj cd ~/
+# map gk cd ~/
+map gl cd ~/Projects/Learning
+map gm cd ~/Musica
+map gn cd ~/.notes
+map go cd ~/Projects/offlineSystem
+map gp cd ~/Projects
+# map gq cd ~/
+# map gr cd ~/
+map gt cd ~/Tools
+map gs cd ~/go/src
+# map gq cd ~/
+map gv cd ~/Videos
+map gw cd ~/Images/wallpapers
+# map gx cd ~/
+# map gy cd ~/
+# map gz cd ~/
+
+# map gA cd ~/
+# map gB cd ~/
+# map gC cd 
+map gD cd ~/Projects/Tese
+# map gE cd ~/
+# map gF cd ~/
+map gH cd /mnt/Data
+# # map gg cd ~/ mapped to gg vim go top
+# map gI cd ~/
+# map gJ cd ~/
+# map gK cd ~/
+# map gL cd ~/
+map gM cd /mnt
+# map gN cd ~/Code
+# map gO cd ~/Code/SETUP_SYSTEM
+# map gP cd ~/
+# map gQ cd ~/
+# map gR cd ~/
+map gT cd /tmp
+map gS cd ~/Projects/siteGaming
+# map gU cd ~/
+# map gV cd ~/
+# map gW cd ~/
+# map gX cd ~/
+# map gY cd ~/
+# map gZ cd ~/
+
+map e teste
+
+
+
+
+
+
+
+
+

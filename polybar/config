@@ -1,0 +1,750 @@
+
+
+
+#examples  https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes
+[bar/topLaptop]
+monitor = eDP1
+width = 100%
+height = 34
+
+background = #000000
+foreground = #ccffffff
+
+line-color = ${bar/bottom.background}
+line-size = 16
+
+border-bottom-size = 2
+border-color = #880000
+
+spacing = 2
+padding-right = 5
+module-margin = 1
+font-3 = "Tamsyn:pixelsize=12;0"
+font-4 = "Roboto:size=11:weight=bold;2"
+font-5 = "Noto Sans:size=11;1"
+#font-6 =  pango:DejaVu Sans Mono, Awesome 8
+font-7 = "NotoSans-Regular:size=8;-1"
+font-6 = "MaterialIcons:size=10;0"
+#font-5 = Termsynu:size=8:antialias=false;-2
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
+font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
+
+modules-left =   battery cpu memory wireless-network expressvpn 
+modules-center = i3
+modules-right = mpd mpd_status pkg  hiddenSearchBrowser keymap date 
+
+
+tray-position = right
+tray-padding = 4
+tray-transparent = false
+tray-background = #000000
+
+[bar/top]
+monitor = HDMI-0
+width = 100%
+height = 34
+
+background = #000000
+foreground = #ccffffff
+
+line-color = ${bar/bottom.background}
+line-size = 16
+
+border-bottom-size = 2
+border-color = #880000
+
+spacing = 2
+padding-right = 5
+
+font-3 = "Tamsyn:pixelsize=12;0"
+font-4 = "Roboto:size=11:weight=bold;2"
+font-5 = "Noto Sans:size=11;1"
+#font-6 =  pango:DejaVu Sans Mono, Awesome 8
+font-7 = "NotoSans-Regular:size=8;-1"
+font-6 = "MaterialIcons:size=10;0"
+#font-5 = Termsynu:size=8:antialias=false;-2
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
+font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
+
+#Hipotesse1 - Only top bar
+modules-left =    cpu memory wireless-network expressvpn 
+modules-center = i3
+modules-right = mpd mpd_status pkg  hiddenSearchBrowser soundOut keymap date 
+
+
+tray-position = right
+tray-padding = 4
+tray-transparent = false
+tray-background = #000000
+
+[bar/top1]
+monitor = DP-0
+width = 100%
+height = 34
+
+background = #000000
+foreground = #ccffffff
+
+line-color = ${bar/bottom.background}
+line-size = 16
+
+border-bottom-size = 2
+border-color = #880000
+
+spacing = 2
+padding-right = 5
+module-margin = 4
+font-3 =  pango:DejaVu Sans Mono, Awesome 8
+font-0 = NotoSans-Regular:size=8;-1
+font-1 = MaterialIcons:size=10;0
+font-2 = Termsynu:size=8:antialias=false;-2
+font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=12;2"
+font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
+font-6 = "Font Awesome 5 Brands:style=Regular:pixelsize=12;2"
+
+
+
+
+#Hipotesse1 - Only top bar
+modules-left =     date 
+modules-center = i3
+modules-right =  
+
+
+
+
+
+
+[bar/top2]
+monitor = DP-2
+width = 100%
+height = 34
+
+background = #000000
+foreground = #ccffffff
+
+border-bottom-size = 2
+border-color = #880000
+
+line-color = ${bar/bottom.background}
+line-size = 16
+
+spacing = 2
+padding-right = 5
+module-margin = 4
+font-3 =  pango:DejaVu Sans Mono, Awesome 8
+font-0 = NotoSans-Regular:size=8;-1
+font-1 = MaterialIcons:size=10;0
+font-2 = Termsynu:size=8:antialias=false;-2
+font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=12;2"
+font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
+font-6 = "Font Awesome 5 Brands:style=Regular:pixelsize=12;2"
+
+
+
+
+#Hipotesse1 - Only top bar
+modules-left =    
+modules-center = i3
+modules-right =    date 
+
+
+
+
+[bar/bottom]
+monitor = eDP-1
+bottom = true
+width = 100%
+height = 27
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+
+line-color = ${bar/top.background}
+line-size = 2
+
+spacing = 3
+padding-right = 4
+module-margin-left = 0
+module-margin-right = 6
+
+font-3 =  pango:DejaVu Sans Mono, Awesome 8
+font-0 = NotoSans-Regular:size=8;-1
+font-1 = MaterialIcons:size=10;0
+font-2 = Termsynu:size=8:antialias=false;-2
+font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=12;2"
+font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
+font-6 = "Font Awesome 5 Brands:style=Regular:pixelsize=12;2"
+
+modules-left = 
+modules-right = clementine
+
+
+
+
+
+[module/alsa]
+type = internal/alsa
+
+; Soundcard to be used
+; Usually in the format hw:# where # is the card number
+; You can find the different card numbers in `/proc/asound/cards`
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+; Name of the master, speaker and headphone mixers
+; Use the following command to list available mixer controls:
+; $ amixer scontrols | sed -nr "s/.*'([[:alnum:]]+)'.*/\1/p"
+; If master, speaker or headphone-soundcard isn't the default, 
+; use `amixer -c # scontrols` instead where # is the number 
+; of the master, speaker or headphone soundcard respectively
+;
+; Default: Master
+master-mixer = Master
+
+; Optionally define speaker and headphone mixers
+; Default: none
+speaker-mixer = Speaker
+; Default: none
+headphone-mixer = Headphone
+
+; NOTE: This is required if headphone_mixer is defined
+; Use the following command to list available device controls
+; $ amixer controls | sed -r "/CARD/\!d; s/.*=([0-9]+).*name='([^']+)'.*/printf '%3.0f: %s\n' '\1' '\2'/e" | sort
+; You may also need to use `amixer -c # controls` as above for the mixer names
+; Default: none
+headphone-id = 9
+
+; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
+; Default: false
+mapped = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted =  muted
+label-muted-foreground = #66
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+; If defined, it will replace <ramp-volume> when
+; headphones are plugged in to `headphone_control_numid`
+; If undefined, <ramp-volume> will be used for both
+; Only applies if <ramp-volume> is used
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> 
+
+label-charging= %percentage%
+label-discharging= %percentage%
+label-full = %percentage%
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = ?
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 3
+bar-capacity-empty = ?
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/bspwm]
+type = internal/bspwm
+
+ws-icon-0 = term;?
+ws-icon-1 = web;?
+ws-icon-2 = code;?
+ws-icon-3 = music;?
+ws-icon-4 = irssi;?
+ws-icon-default = ?
+
+format = <label-state> <label-mode>
+
+label-dimmed-underline = ${BAR.background}
+
+label-active = %icon%
+label-active-foreground = #fff
+label-active-background = #773f3f3f
+label-active-underline = #c9665e
+label-active-font = 4
+label-active-padding = 4
+
+label-occupied = %icon%
+label-occupied-foreground = #dd
+label-occupied-underline = #666
+label-occupied-font = 4
+label-occupied-padding = 4
+
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+label-urgent-font = 4
+label-urgent-padding = 4
+
+label-empty = %icon%
+label-empty-foreground = #55
+label-empty-font = 4
+label-empty-padding = 4
+
+label-monocle = ?
+label-monocle-underline = ${module/bspwm.label-active-underline}
+label-monocle-background = #33ffffff
+label-monocle-padding = 2
+
+label-locked = ?
+label-locked-foreground = #bd2c40
+label-locked-underline = ${module/bspwm.label-monocle-underline}
+label-locked-padding = ${module/bspwm.label-monocle-padding}
+
+label-sticky = ?
+label-sticky-foreground = #fba922
+label-sticky-underline = ${module/bspwm.label-monocle-underline}
+label-sticky-padding = ${module/bspwm.label-monocle-padding}
+
+label-private = ?
+label-private-foreground = #bd2c40
+label-private-underline = ${module/bspwm.label-monocle-underline}
+label-private-padding = ${module/bspwm.label-monocle-padding}
+
+[module/bspwm-tmp]
+type = internal/bspwm
+format = <label-state>
+
+label-active = ?
+label-active-padding = 1
+label-occupied = ?
+label-occupied-padding = 1
+label-empty = ?
+label-empty-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <ramp-coreload> <label>
+label = " "  
+
+ramp-coreload-spacing = 1
+ramp-coreload-0 = 
+ramp-coreload-0-foreground = #33ff33
+ramp-coreload-1 = 
+ramp-coreload-1-foreground = #00cc00
+ramp-coreload-2 = 
+ramp-coreload-2-foreground = #009900
+ramp-coreload-3 = 
+ramp-coreload-3-foreground = #ffff33
+ramp-coreload-4 = 
+ramp-coreload-4-foreground = #ffb266
+ramp-coreload-5 = 
+ramp-coreload-5-foreground = #ff8000
+ramp-coreload-6 = 
+ramp-coreload-6-foreground = #ff3333
+ramp-coreload-7 = 
+ramp-coreload-7-foreground = #ff0000
+
+[module/date]
+type = internal/date
+date =  %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-} 
+date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+
+[module/memory]
+type = internal/memory
+format = <bar-used> <label>
+label = "  " 
+#label = RAM %gb_used%/%gb_free%
+
+bar-used-width = 30
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+bar-used-fill = -
+bar-used-fill-font = 6
+bar-used-empty = -
+bar-used-empty-font = 6
+bar-used-empty-foreground = #444444
+interval = 3
+
+[module/mpd]
+type = internal/mpd
+format-online =  <label-song>  <label-time> <icon-prev> <icon-stop> <toggle> <icon-next> 
+label-song = %title%
+# label-song = %{F#0f0}  %{F-} %artist% - %title%
+label-song-maxlen =15 
+
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = " "
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-random = 🔀
+icon-repeat = 🔁
+icon-repeatone = 🔂
+icon-single = 🔂
+icon-consume = ✀
+
+toggle-on-foreground = #0f0
+toggle-off-foreground = #f00
+
+bar-progress-width = 45
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ?
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ?
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
+
+[module/wireless-network]
+type = internal/network
+# interface = wlp5s0
+interface = enp39s0  
+interval = 1.0
+ping-interval = 10
+
+format-connected = <label-connected>
+label-connected =  %local_ip%    %downspeed%     %upspeed%
+label-disconnected =    not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${bar/top.foreground}
+animation-packetloss-framerate = 500
+
+[module/wired-network]
+type = internal/network
+interface = net0
+interval = 3.0
+
+label-connected = ?   %{T3}%local_ip%%{T-}
+label-disconnected-foreground = #66
+
+[module/volume]
+type = internal/volume
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-muted =   muted
+label-muted-foreground = #66
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+[module/powermenu]
+type = custom/menu
+
+format-padding = 5
+
+label-open = 
+label-close = 
+
+menu-0-0 = Terminate WM
+menu-0-0-foreground = #fba922
+menu-0-0-exec = bspc quit -1
+menu-0-1 = Reboot
+menu-0-1-foreground = #fba922
+menu-0-1-exec = menu_open-1
+menu-0-2 = Power off
+menu-0-2-foreground = #fba922
+menu-0-2-exec = menu_open-2
+
+menu-1-0 = Cancel
+menu-1-0-foreground = #fba922
+menu-1-0-exec = menu_open-0
+menu-1-1 = Reboot
+menu-1-1-foreground = #fba922
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = Power off
+menu-2-0-foreground = #fba922
+menu-2-0-exec = sudo poweroff
+menu-2-1 = Cancel
+menu-2-1-foreground = #fba922
+menu-2-1-exec = menu_open-0
+
+[module/clock]
+type = internal/date
+interval = 2
+date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+
+[module/backlight]
+type = internal/backlight
+#format = <label>
+format =   <bar>
+#format = <ramp> <bar>
+
+card =  intel_backlight
+
+
+label = %percentage%%
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-font = 3
+bar-indicator-foreground = #ff
+bar-fill = ─
+bar-fill-font = 3
+bar-fill-foreground = #c9665e
+bar-empty = ─
+bar-empty-font = 3
+bar-empty-foreground = #44
+
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = true
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = true
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+#label-focused = %index%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+#label-focused-underline = #fba922
+label-focused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+#label-unfocused = %index%
+label-unfocused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+#label-visible = %index%
+label-visible-underline = #555555
+label-visible-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+#label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 2
+label-separator-foreground = #ffb52a
+
+[module/keyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+; Available tags:
+;   <label-layout> (default)
+;   <label-indicator> (default)
+format = <label-layout> <label-indicator>
+format-spacing = 0
+
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+; Default: %layout%
+label-layout = %name%
+label-layout-padding = 2
+label-layout-background = #000000
+label-layout-foreground = #0000FF
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-indicator = %name%
+label-indicator-padding = 2
+label-indicator-background = #8139e8
+
+
+
+[module/pkg]
+type = custom/script
+exec = ~/.scripts/polybar/checkupdates.sh
+click-left = urxvt -name TempQ1 -e bash ~/.scripts/polybar/updates.sh &
+interval = 3600
+
+
+###Meus modulos
+
+#cmus songs
+[module/cmusStatus]
+type = custom/script
+exec = .scripts/polybar/songPlaying.sh 30
+
+
+
+; vim:ft=dosini
+
+[module/mpd_status]
+type = custom/script
+exec = ~/.scripts/polybar/getMpdStatus.sh
+
+[module/keymap]
+type = custom/script
+exec = ~/.scripts/polybar/getCurrentLayout.sh
+click-left = ~/.scripts/setUsCtrlSwap.sh
+click-right = ~/.scripts/setPtCtrlNormal.sh
+
+
+[module/expressvpn]
+type = custom/script
+exec = ~/.scripts/polybar/getVpnStatus.sh
+click-left = ~/.scripts/polybar/expressvpn_connect.sh opera smart
+click-middle = urxvt -name TempQ1 -e ~/.scripts/systemctlToggle.sh expressvpn
+click-right = ~/.scripts/polybar/expressvpn_disconnect.sh chromium
+
+[module/soundOut]
+type = custom/script
+exec = ~/.scripts/polybar/getSoundOut.sh
+click-left = ~/.scripts/polybar/switchSoundOut.sh 15
+
+[module/IP]
+type = custom/script
+exec = ~/.scripts/polybar/getIp.sh
+
+[module/clementine]
+type = custom/script
+exec = ~/.scripts/polybar/clementineSong.sh
+
+[module/hiddenSearchBrowser]
+type = custom/script
+exec = ~/.scripts/polybar/hiddenSearchBrowser.sh
+
+
+

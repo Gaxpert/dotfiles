@@ -1,0 +1,403 @@
+# Battlestation
+
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+
+#############  BINDS ###############
+
+set $mod Mod1
+set $TERMINAL urxvt
+set $TERMINAL2 st
+
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+
+#########   TERMINALS  ######
+bindsym $mod+Return exec $TERMINAL
+bindsym $mod+Shift+Return exec $TERMINAL2
+
+
+######    Cores janelas   ##########
+#set $bg-color		#00008B  #Azul oscuro
+#set $bg-color		#E0E0E0  #Cinzento
+#set $bg-color		#3399FF	 #Azul claro
+
+set $bg-color		#404040	 
+set $inactive-bg-color	#2f343f
+set $text-color 	#f3f4f5
+set $inactive-text-color  #676E7D
+set $urgent-bg-color	#E53935
+
+# kill focused window
+bindsym $mod+BackSpace kill
+bindsym $mod+Escape kill
+
+#Shutdown PC
+bindsym $mod+Shift+Escape exec shutdown now
+
+########## Menus  ##########
+bindsym $mod+d exec rofi -show run  -font "Inconsolata 18" -lines 5 -width 15
+
+
+####### WORKSPACES  ###########
+set $workspace1 " Terminal"
+set $workspace2 " Pessoal "
+set $workspace3 " Ide"
+set $workspace4 " Cenas"
+set $workspace5 " Anon"
+set $workspace6 " Aux"
+#set $workspace7 "Download "
+#set $workspace8 "Image "
+#set $workspace9 "Chat "
+#set $workspace10 "Musica "  
+
+
+assign [class="Chromium"] $workspace2
+assign [class="Brave-browser"] $workspace5
+
+
+######## KEYBINDS $MOD   ####################
+bindsym $mod+grave focus floating
+bindsym $mod+space focus mode_toggle
+bindsym $mod+0 exec mpc toggle 
+bindsym $mod+1 workspace $workspace4
+bindsym $mod+2 workspace $workspace5
+bindsym $mod+3 workspace $workspace6
+# bindsym $mod+4 
+#bindsym $mod+5 
+#bindsym $mod+6 
+#bindsym $mod+7 
+#bindsym $mod+8 
+bindsym $mod+9 exec mpc prev
+#bindsym $mod+a 
+bindsym $mod+b exec ~/.scripts/rofi/rofi-MyWebSearch.sh brave 
+# bindsym $mod+c 
+# bindsym $mod+d #ocupado com rofi
+bindsym $mod+e workspace $workspace3
+#bindsym $mod+f 
+# bindsym $mod+g 
+bindsym $mod+h split h
+bindsym $mod+i focus up
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus right
+bindsym $mod+m exec ~/.scripts/launchMusic.sh
+bindsym $mod+n exec ~/.scripts/rofi/rofi_notes.sh -a "Gaxpert" -e "urxvt vim" -o "$HOME/.notes"
+bindsym $mod+o layout toggle split
+bindsym $mod+p [class="KeePassXC"] scratchpad show
+bindsym $mod+q workspace $workspace1
+bindsym $mod+r mode "resize"
+# bindsym $mod+s 
+bindsym $mod+t exec ~/.scripts/i3_show_temps_scratchpad.sh
+bindsym $mod+u exec ~/.scripts/rofi/rofi-MyWebSearch.sh firefox
+bindsym $mod+v split v
+bindsym $mod+w workspace $workspace2
+# bindsym $mod+x exec i3lock -i '/home/z/Pictures/wallpapers/bigRick.png' -n #Rick Morty 3 mon wp
+bindsym $mod+x exec i3lock -i '/home/z/Pictures/wallpapers/Agenda.jpg' -n #joker 4 mon wp
+# bindsym $mod+x exec i3lock -i '/home/z/Documents/teste1.png' -n
+bindsym $mod+y exec ~/.scripts/launchI3Scratch.sh ~/.scripts/youtubi.sh
+bindsym $mod+z [class="Zeal"] scratchpad show
+bindsym $mod+bracketleft exec $TERMINAL -e zsh -c ~/.scripts/launchLf.sh
+bindsym $mod+bracketright [class="firefox"] scratchpad show
+bindsym $mod+semicolon [instance="Dropdown"] scratchpad show
+# bindsym $mod+shift+grave 
+
+# bindsym $mod+equal
+# bindsym $mod+apostrophe [instance="center"] scratchpad show
+bindsym $mod+slash exec --no-startup-id amixer set Master 8%+
+bindsym $mod+comma exec --no-startup-id amixer set Master 8%- 
+bindsym $mod+period exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+space floating toggle
+bindcode 107 exec screengrab   #printscreen key
+bindsym $mod+minus exec mpc next
+
+
+######## KEYBINDS $MOD + SHIFT   ####################
+bindsym $mod+Shift+1 move container to workspace $workspace4
+bindsym $mod+Shift+2 move container to workspace $workspace5
+bindsym $mod+Shift+3 move container to workspace $workspace6
+#bindsym $mod+Shift+4 
+bindsym $mod+Shift+5 exec "xbacklight -dec 5"
+bindsym $mod+Shift+6 exec "xbacklight -inc 5"
+#bindsym $mod+Shift+7 
+#bindsym $mod+Shift+8 
+#bindsym $mod+Shift+9 
+#bindsym $mod+Shift+0 
+# bindsym $mod+Shift+a move workspace to output $monEsq
+# bindsym $mod+Shift+b 
+#bindsym $mod+Shift+c 
+# bindsym $mod+Shift+d move workspace to output $monDir
+# bindsym $mod+Shift+e move container to workspace $workspace3
+#bindsym $mod+Shift+f 
+#bindsym $mod+Shift+g 
+# bindsym $mod+Shift+h 
+bindsym $mod+Shift+i move up 510 
+bindsym $mod+Shift+j move left 950px
+bindsym $mod+Shift+k move down 510
+bindsym $mod+Shift+l move right 950px 
+# bindsym $mod+Shift+m 
+# bindsym $mod+Shift+n 
+bindsym $mod+Shift+o exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+p exec ~/.scripts/setPtCtrlNormal.sh 
+bindsym $mod+Shift+q move container to workspace $workspace1
+bindsym $mod+Shift+r restart
+# bindsym $mod+u exec gnome-disks
+# bindsym $mod+Shift+t 
+bindsym $mod+Shift+u exec ~/.scripts/setUsCtrlSwap.sh
+#bindsym $mod+Shift+v 
+bindsym $mod+Shift+w move container to workspace $workspace2
+# bindsym $mod+Shift+x 
+# bindsym $mod+Shift+y 
+# bindsym $mod+Shift+z 
+bindsym $mod+Shift+bracketleft exec /home/z/.scripts/browserVpned.sh 
+bindsym $mod+Shift+bracketright exec brave
+# bindsym $mod+Shift+semicolon
+#bindsym $mod+Shift+grave 
+#bindsym $mod+Shift+backslash 
+#bindsym $mod+Shift+equal
+#bindsym $mod+Shift+apostrophe 
+#bindsym $mod+Shift+slash
+#bindsym $mod+Shift+comma 
+bindsym $mod+Shift+period exec urxvt -e pulsemixer
+bindsym $mod+Shift+Left move left 950px
+bindsym $mod+Shift+Down move down 510
+bindsym $mod+Shift+Up move up 510
+bindsym $mod+Shift+Right move right 950px
+bindsym $mod+Tab workspace back_and_forth
+bindsym Shift+Print exec screengrab -r
+
+######## KEYBINDS $MOD +CRTL  ####################
+#bindsym $mod+ctrl+a 
+#bindsym $mod+ctrl+b 
+#bindsym $mod+ctrl+c 
+bindsym $mod+ctrl+d exec gnome-disks 
+#bindsym $mod+ctrl+e 
+#bindsym $mod+ctrl+f 
+#bindsym $mod+ctrl+g 
+#bindsym $mod+ctrl+h 
+#bindsym $mod+ctrl+i 
+#bindsym $mod+ctrl+j 
+#bindsym $mod+ctrl+k 
+#bindsym $mod+ctrl+l 
+#bindsym $mod+ctrl+m 
+# bindsym $mod+ctrl+n 
+#bindsym $mod+ctrl+o 
+#bindsym $mod+ctrl+p 
+#bindsym $mod+ctrl+q 
+#bindsym $mod+ctrl+r 
+#bindsym $mod+ctrl+s 
+#bindsym $mod+ctrl+t 
+# bindsym $mod+ctrl+u [class="Chromium"] scratchpad show
+#bindsym $mod+ctrl+v 
+#bindsym $mod+ctrl+w 
+#bindsym $mod+ctrl+x
+#bindsym $mod+ctrl+y
+#bindsym $mod+ctrl+z 
+bindsym $mod+ctrl+0 exec mpc stop
+
+#For Volume Control
+# bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 8%+
+# bindsym F86AudioLowerVolume exec --no-startup-id amixer set Master 8%- 
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+#                                 # amixer -D pulse sset Master unmute
+
+#For Brightness Control
+# bindsym XF86KbdBrightnessUp exec light -k -A 10
+# bindsym XF86KbdBrightnessDown exec light -k -U 10
+
+
+####### MODES   #######
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym shift+h resize shrink width 100 px or 10 ppt
+        bindsym shift+j resize grow height 100 px or 10 ppt
+        bindsym shift+k resize shrink height 100 px or 10 ppt
+        bindsym shift+l resize grow width 100 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+
+
+
+
+#window colors
+#			border			background		text			indicator
+client.focused		#CCFFFF			$0000FF			$text-color		#00ff00	
+client.unfocused	$inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00ff00
+client.focused_inactive	$inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00ff00
+client.urgent		$urgent-bg-color	$urgent-bg-color	$text-color		#00ff00
+
+####### ON STARTUP #######
+exec_always feh --bg-scale /home/z/Images/wallpapers/Arch1.png
+# exec --no-startup-id nitrogen --restore
+exec_always ~/.scripts/screenlayout.sh
+exec_always ~/.scripts/setUsCtrlSwap.sh
+exec_always ~/.scripts/sleepAndExec.sh
+exec_always xmodmap ~/.Xmodmap
+# exec_always  picom --config ~/.config/picom/picom.config #Compise for terminal opacity
+exec_always --no-startup-id ~/.config/polybar/launch_laptop.sh &
+exec_always pa-applet
+exec_always nm-applet
+# exec_always --no-startup-id urxvt -name youtubi -e ~/.scripts/youtubi.sh ~/Musica/youtubi.txt
+# exec_always --no-startup-id $TERMINAL -name Dropdown 
+# exec_always --no-startup-id $TERMINAL -name center
+# exec_always keepassxc
+exec_always  blueman-applet
+exec_always mpd 
+exec_always --no-startup-id autotiling
+
+
+
+
+
+#So i3blocks work, border gap
+smart_gaps on
+hide_edge_borders both
+for_window [class="^.*"] border pixel 1
+gaps inner 0
+gaps outer 0
+for_window [class="Firefox"] border pixel 1
+gaps inner 0
+gaps outer 0
+for_window [class="URxvt"] border pixel 1
+gaps inner 10
+gaps outer 10
+
+
+#########  FLOATING // SCRATCHPADS #########
+floating_maximum_size 1920 x 1000
+
+for_window [instance="Virt-manager"] floating enable
+for_window [class="Virt-manager"] floating enable
+
+for_window [class="Gnome-disks"] floating enable
+
+
+
+#Temporary floating windows general
+#    ------          ------
+#   |Q1  Q2|        |H1   H2|
+#   |Q3  Q4|        |H1   H2|
+#   --------         -------
+#
+#  Each temp window is moved to scratchpad and then showed to facilitate hide/show later
+for_window [instance="TempQ1"] floating enable 
+for_window [instance="TempQ1"] move up 230px move left 530px
+for_window [instance="TempQ1"] resize set 930 px 510 px
+for_window [instance="TempQ1"] move scratchpad
+for_window [instance="TempQ1"] scratchpad show
+for_window [instance="TempQ2"] floating enable 
+for_window [instance="TempQ2"] move down 260px move left 530px
+for_window [instance="TempQ2"] resize set 930 px 510 px
+for_window [instance="TempQ2"] move scratchpad
+for_window [instance="TempQ2"] scratchpad show
+for_window [instance="TempQ3"] floating enable 
+for_window [instance="TempQ3"] move up 230px move right 410px
+for_window [instance="TempQ3"] resize set 930 px 510 px
+for_window [instance="TempQ3"] move scratchpad
+for_window [instance="TempQ3"] scratchpad show
+for_window [instance="TempQ4"] floating enable 
+for_window [instance="TempQ4"] move down 260px move right 410px
+for_window [instance="TempQ4"] resize set 930 px 510 px
+for_window [instance="TempQ4"] move scratchpad
+for_window [instance="TempQ4"] scratchpad show
+#Halfs
+for_window [instance="TempH1"] floating enable 
+for_window [instance="TempH1"] move up 230px move left 530px
+for_window [instance="TempH1"] resize set 930 px 1020 px
+for_window [instance="TempH1"] move scratchpad
+for_window [instance="TempH1"] scratchpad show
+for_window [instance="TempH2"] floating enable 
+for_window [instance="TempH2"] move up 230px move right 410px
+for_window [instance="TempH2"] resize set 930 px 1020 px
+for_window [instance="TempH2"] move scratchpad
+for_window [instance="TempH2"] scratchpad show
+
+for_window [instance="TempScript1"] floating enable 
+for_window [instance="TempScript1"] move up 230px move right 410px
+for_window [instance="TempScript1"] resize set 930 px 510 px
+for_window [instance="TempScript1"] move scratchpad
+for_window [instance="TempScript1"] scratchpad show
+
+for_window [instance="TempScript2"] floating enable 
+for_window [instance="TempScript2"] move up 230px move right 410px
+for_window [instance="TempScript2"] resize set 930 px 510 px
+for_window [instance="TempScript2"] move scratchpad
+for_window [instance="TempScript2"] scratchpad show
+
+for_window [class="firefox"] floating enable 
+for_window [class="firefox"] move right 470px # move up 20px
+for_window [class="firefox"] resize set 930 px 1020 px
+for_window [class="firefox"] move scratchpad
+for_window [class="firefox"] scratchpad show
+
+# for_window [instance="ReadMarkdown"] floating enable move right 270px move up 300px
+# for_window [instance="ReadMarkdown"] resize set 1000 1000
+
+for_window [instance="youtubi"] floating enable move up 140 px move left 220 px
+for_window [instance="youtubi"] resize set 500 100
+for_window [instance="youtubi"] move scratchpad
+for_window [instance="youtubi"] scratchpad show
+for_window [instance="youtubi"] border pixel 5
+
+
+for_window [class="KeePassXC"] floating enable 
+for_window [class="KeePassXC"] move scratchpad
+for_window [class="KeePassXC"] resize set 1000 800 
+for_window [class="KeePassXC"] scratchpad show
+
+
+for_window [instance="Dropdown"] floating enable 
+for_window [instance="Dropdown"] resize set 700 500
+for_window [instance="Dropdown"] move scratchpad
+for_window [instance="Dropdown"] border pixel 2
+
+for_window [instance="center"] floating enable move up 230 px move right 57 px
+for_window [instance="center"] resize set 599 600 
+for_window [instance="center"] move scratchpad
+for_window [instance="center"] border pixel 2
+
+#for_window [instance="math"] floating enable move up 230 px move left 550 px
+#for_window [instance="math"] resize set 599 600
+#for_window [instance="math"] move scratchpad
+#for_window [instance="math"] border pixel 2
+
+#for_window [instance="right"] floating enable move up 230 px move right 665 px
+#for_window [instance="right"] resize set 670 1010 
+#for_window [instance="right"] border pixel 2
+
+for_window [instance="rxvtMusic"] floating enable 
+for_window [instance="rxvtMusic"] resize set 700 500
+for_window [instance="rxvtMusic"] move scratchpad
+for_window [instance="rxvtMusic"] scratchpad show
+for_window [instance="rxvtMusic"] border pixel 2
