@@ -27,7 +27,6 @@ Plugin 'gorodinskiy/vim-coloresque' "See color codes
 	"""""""""""""
 	"   Bar     "
 	" """""""""""
-"Plugin 'vim-airline/vim-airline'
 Plugin 'itchyny/lightline.vim' "More simple
 set laststatus=2
 set noshowmode "Removes normal bar since its no longer nedded
@@ -139,6 +138,9 @@ Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'jupyter-vim/jupyter-vim'
 let g:jupyter_mapkeys = 0
 
+" Rust
+Plugin 'rust-lang/rust.vim'
+
 
 	""""""""""""
 	"  Extras "
@@ -152,9 +154,9 @@ let g:rainbow_active = 1
 Plugin 'tmhedberg/SimpylFold'
 let g:SimpylFold_docstring_preview=1
 Plugin 'restore_view.vim'
-Plugin 'machakann/vim-swap'
-Plugin 'townk/vim-autoclose'
-Plugin 'tpope/vim-surround'
+" Plugin 'machakann/vim-swap'
+Plugin 'jiangmiao/auto-pairs'
+" Plugin 'tpope/vim-surround'
 "  Del separator    ds(    delete separator <sep>  ("[ ....
 "  Change separardor  cs(
 " in visual mode   S <separator> ex: VS(
@@ -172,7 +174,7 @@ Plugin 'airblade/vim-gitgutter'
 " :AsyncRun
 "    % --> filename
 "    %<  --> filename without extension
-Plugin 'skywind3000/asyncrun.vim'
+" Plugin 'skywind3000/asyncrun.vim'
 
 "Cant update or install with these on
 " Plugin 'camspiers/animate.vim'
@@ -207,9 +209,9 @@ filetype plugin indent on    " required
 set noshowmode  " vim-airline plugin replaces 
 set autoindent
 set smartindent
-set tabstop=2
+set tabstop=4
 " set >> shift with to same as tab
-set shiftwidth=2
+set shiftwidth=4
 
 
 " Cursor line and column
@@ -333,6 +335,16 @@ nmap <leader>aL :Limelight!<CR>
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 nmap <leader>aS :LanguageToolCheck<CR>   " Spell check
+" nmap <leader>as call :AutoPairsShortcutToggle
+
+" let g:AutoPairsShortcutToggle = ''
+
+"Surround
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutFastWrap = '<C-w>'
+imap :call AutoPairsShortcutJump = '<C-j>'
+let g:AutoPairsShortcutBackInsert = '<C-b>'
+
 
 
 "For browser live preview install 'npm install -g browser-sync
@@ -424,6 +436,10 @@ syntax on
 " colo orbital
 colo fahrenheit
 
+" For some reason AutoPairs gets some weird space keybinds. Untoggle them in
+" insert mode
+" autocmd Filetype rust iunmap <buffer> <leader>
+" autocmd Filetype rust iunmap <buffer> <leader>as
 
 hi Normal guibg=NONE ctermbg=NONE
 autocmd FileType vim let b:vcm_tab_complete = 'vim'
