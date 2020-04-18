@@ -103,9 +103,10 @@ bindsym $mod+x exec i3lock -i '/home/z/Pictures/wallpapers/Agenda.jpg' -n #joker
 # bindsym $mod+x exec i3lock -i '/home/z/Documents/teste1.png' -n
 bindsym $mod+y exec ~/.scripts/launchI3Scratch.sh ~/.scripts/youtubi.sh
 bindsym $mod+z [class="Zeal"] scratchpad show
-bindsym $mod+bracketleft exec $TERMINAL -e zsh -c ~/.scripts/launchLf.sh
+# bindsym $mod+bracketleft exec $TERMINAL -e zsh -c ~/.scripts/launchLf.sh
+bindsym $mod+bracketleft exec nautilus
 bindsym $mod+bracketright [class="firefox"] scratchpad show
-bindsym $mod+semicolon [instance="Dropdown"] scratchpad show
+# bindsym $mod+semicolon [instance="Dropdown"] scratchpad show
 # bindsym $mod+shift+grave 
 
 # bindsym $mod+equal

@@ -453,8 +453,8 @@ bar-progress-empty-foreground = #44
 
 [module/wireless-network]
 type = internal/network
-# interface = wlp5s0
-interface = enp39s0  
+interface = wlp5s0
+# interface = enp39s0  
 interval = 1.0
 ping-interval = 10
 

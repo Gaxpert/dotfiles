@@ -118,7 +118,7 @@ bindsym $mod+z [class="Zeal"] scratchpad show
 # bindsym $mod+bracketleft exec $TERMINAL -e zsh -c ~/.scripts/launchLf.sh
 bindsym $mod+bracketleft exec nautilus
 bindsym $mod+bracketright [class="firefox"] scratchpad show
-bindsym $mod+backslash exec nautilus
+# bindsym $mod+backslash exec nautilus
 # bindsym $mod+semicolon  
 # bindsym $mod+shift+grave 
 
