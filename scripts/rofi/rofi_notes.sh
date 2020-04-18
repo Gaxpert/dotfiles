@@ -30,12 +30,10 @@ edit_note() {
 
 read_note(){
 	note_location=$1 
-	# urxvt -hold -e bash -c "/home/z/go/bin/glow ~/.notes/fonts.md"
-	# urxvt -name TempH1 -hold -e bash -c "glow $note_location"
+	#Laptop
 	urxvt -name TempH1 -e bash -c "/usr/bin/glow $note_location -p less "
-	# urxvt -name TempH1 -e bash -c "pandoc $note_location | lynx -stdin "
-	# urxvt  -name TempH1 -e zsh -c "~/.local/bin/mdv $note_location | more "
-	# urxvt  -name TempH1 -e zsh -c "~/.gem/ruby/2.7.0/bin/mdless $note_location "
+	#Desktop
+	# urxvt -name TempH1 -e bash -c "/home/z/go/bin/glow $note_location -p less"
 }
 
 delete_note() {
