@@ -346,7 +346,6 @@ imap :call AutoPairsShortcutJump = '<C-j>'
 let g:AutoPairsShortcutBackInsert = '<C-b>'
 
 
-
 "For browser live preview install 'npm install -g browser-sync
 " noremap <leader>lb :execute 'silent !urxvt -e browser-sync start --server --files . &'
 
