@@ -25,15 +25,15 @@ get_notes() {
 
 edit_note() {
     note_location=$1
-    urxvt -name TempQ3 -e vim "$note_location"
+    urxvt -name TempH2 -e vim "$note_location"
 }
 
 read_note(){
 	note_location=$1 
 	#Laptop
-	urxvt -name TempH1 -e bash -c "/usr/bin/glow $note_location -p less "
+	# st -n TempH1 -g 100x32 -e bash -c "/usr/bin/glow $note_location -p less "
 	#Desktop
-	# urxvt -name TempH1 -e bash -c "/home/z/go/bin/glow $note_location -p less"
+	st -n TempH1 -g 100x32 -e bash -c "/home/z/go/bin/glow $note_location -p less"
 }
 
 delete_note() {

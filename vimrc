@@ -340,11 +340,11 @@ nmap <leader>aS :LanguageToolCheck<CR>   " Spell check
 " let g:AutoPairsShortcutToggle = ''
 
 "Surround
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutFastWrap = '<C-w>'
-imap :call AutoPairsShortcutJump = '<C-j>'
+" imap :call AutoPairsShortcutJump = '<C-j>'
 let g:AutoPairsShortcutBackInsert = '<C-b>'
-
+let g:AutoPairsShortcutJump = '<C-j>'
 
 "For browser live preview install 'npm install -g browser-sync
 " noremap <leader>lb :execute 'silent !urxvt -e browser-sync start --server --files . &'
