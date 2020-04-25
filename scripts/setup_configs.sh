@@ -96,15 +96,20 @@ echo "Moved ~/.bashrc to ~/.bashrc_old so it sets zsh"
 
 #vim and plugins
 echo "Installing vim plugins"
-vim -c ":PluginInstall"
-cd ~/.vim/bundle/youcompleteme/
-python3 install.py
+# vim -c ":PluginInstall"
+# cd ~/.vim/bundle/youcompleteme/
+# python3 install.py
 
 
 #so it matches files
 rm -r ~/Documents
 rm -r ~/Pictures
 rm -r ~/Music
+
+mkdir ~/Images
+mkdir ~/Projects
+mkdir ~/Tools
+
 
 
 # chmod +x ~/.scripts/*
