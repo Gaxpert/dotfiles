@@ -2,8 +2,7 @@
 
 
 currentp=`pwd`
-folder="/dotfiles/"
-path=$currentp$folder
+path=$currentp"/"
 echo "Path detected $path"
 
 function reportCopy {
@@ -95,7 +94,8 @@ echo "zsh" >> ~/.bashrc
 echo "Moved ~/.bashrc to ~/.bashrc_old so it sets zsh"
 
 #vim and plugins
-echo "Installing vim plugins"
+echo "Install vim plugins with:"
+echo " > vim -c ':PluginInstall'"
 # vim -c ":PluginInstall"
 # cd ~/.vim/bundle/youcompleteme/
 # python3 install.py
