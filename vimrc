@@ -249,9 +249,9 @@ inoremap jj <Esc>
 	""""""""""""""""
 	"Buffer control  "
 	""""""""""""""""
-noremap <leader>bb :<Return>
-noremap <leader>bp :bprevious<Return>
-noremap <leader>bn :bnext<Return>
+noremap <leader>bb :BuffergatorTabsToggle<Return>
+noremap <leader>bp :BuffergatorMruCyclePrev<Return>
+noremap <leader>bn :BuffergatorMruCycleNext<Return>
 noremap <leader>bd :bd<Return>
 noremap <leader>bl :ls<Return>
 

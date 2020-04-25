@@ -22,6 +22,6 @@ set -o nounset                              # Treat unset variables as an error
 # f00 -> disconnected
 vpn_state=`~/.scripts/polybar/getVpnStatus.sh | cut -d '{' -f 2 | cut -d '}' -f 1`
 case "$vpn_state" in
-	*0f0*) chromium & ;;
+	*666*) chromium & ;;
 	*) opera & ;;
 esac
