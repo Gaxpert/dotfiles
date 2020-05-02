@@ -102,13 +102,19 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 " inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Down>"
 " inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 
+Plugin 'maralla/completor.vim'
 
 	""""""""""""""""""""""""
 	"  Language Specific   "
 	" """"""""""""""""""""""
 Plugin 'bash-support.vim'
-" Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go'
+
 "
+Plugin 'racer-rust/vim-racer'
+set hidden
+let g:racer_cmd = "/home/z/.cargo/bin/racer"
+let g:racer_insert_paren = 1
 	"""""""
 	"latex"
 	"""""""
@@ -292,9 +298,11 @@ nnoremap <leader>wc :only<Return>
 	"File  control "
 	""""""""""""""""
 	
-nnoremap <leader><Tab> :x<CR>
-" nnoremap <leader><Tab> :bd<Return>
+" nnoremap <leader><Tab> :x<CR>
+nnoremap <leader><Tab> :bd<Return>
 nnoremap <leader>fs :w<Return>
+nnoremap <leader>fw :x<Return>
+nnoremap <leader>fq :qall!<Return>
 let g:ctrlp_map = '<leader>ff'
 silent! nmap <leader>ft :NERDTreeToggle<CR>
 let g:ctrlp_open_new_file = 'v'
@@ -308,15 +316,22 @@ let g:ctrlp_open_new_file = 'v'
 vnoremap <C-c> "+y
 map <C-p> "+p
 
+"Open new line in insert mode
+imap <C-o> <Esc>o
 
 set foldmethod=indent
 set foldlevel=99
 "Fold with tab
 nnoremap <Tab> za  
 
+
+
+	""""""""""""""""
+	"Shell control "
+	""""""""""""""""
+"Find and replace
 nnoremap S :%s//gi<Left><Left><Left>
-
-
+nmap <leader>ss :!
 
 
 
@@ -425,6 +440,14 @@ nnoremap <leader>du :diffupdate<Return>
 " Recompile Xresouces
 	autocmd BufWritePost .Xresources !xrdb ~/.Xresources
 
+augroup Racer
+    autocmd!
+    autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
+    autocmd FileType rust nmap <buffer> <leader>gd 		   <Plug>(rust-doc)
+    " autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
+    " autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
+    " autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
+augroup END
 
 
 

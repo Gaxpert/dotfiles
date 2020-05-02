@@ -88,7 +88,8 @@ bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus right
 bindsym $mod+m exec ~/.scripts/launchMusic.sh
-bindsym $mod+n exec ~/.scripts/rofi/rofi_notes.sh -a "Gaxpert" -e "urxvt vim" -o "$HOME/.notes"
+bindsym $mod+n exec ~/.scripts/rofi/rofi_notes.sh -a "Gaxpert" -e "urxvt vim" -o "$HOME/.notes" -p "/usr/bin/glow"
+
 bindsym $mod+o layout toggle split
 bindsym $mod+p [class="KeePassXC"] scratchpad show
 bindsym $mod+q workspace $workspace1

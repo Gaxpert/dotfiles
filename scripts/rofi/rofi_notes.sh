@@ -2,13 +2,15 @@
 
 EDITOR="vim"
 
-while getopts ":a:e:o:" opt; do
+while getopts ":a:e:o:p:" opt; do
   case $opt in
     a) AUTHOR="$OPTARG"
     ;;
     e) EDITOR="$OPTARG"
     ;;
     o) NOTES_FOLDER="$OPTARG"
+    ;;
+    p) GLOW_PATH="$OPTARG"
     ;;
     \?) echo "Invalid option -$OPTARG" >&2
     ;;
@@ -33,7 +35,9 @@ read_note(){
 	#Laptop
 	# st -n TempH1 -g 100x32 -e bash -c "/usr/bin/glow $note_location -p less "
 	#Desktop
-	st -n TempH1 -g 100x32 -e bash -c "/home/z/go/bin/glow $note_location -p less"
+	# st -n TempH1 -g 100x32 -e bash -c "/home/z/go/bin/glow $note_location -p less"
+	st -n TempH1 -g 100x32 -e bash -c "$GLOW_PATH $note_location -p less"
+	echo $GLOW_PATH
 }
 
 delete_note() {

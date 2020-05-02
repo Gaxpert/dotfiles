@@ -1,0 +1,183 @@
+#######################################################################
+#                            Rust Snippets                            #
+#######################################################################
+
+priority -50
+
+
+
+snippet ext "extern crate"
+extern crate $1;
+endsnippet
+
+snippet use "Use lib::name"
+use $1::$2${3/..*/::/}$3;
+endsnippet
+
+snippet useext "extern crate and use"
+extern crate $1;
+use $1${2/..*/::/}$2;
+endsnippet
+
+
+snippet fn "fn name(?) -> ? {}"
+fn ${1:function_name}($2)${3/..*/ -> /}$3 {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet pfn "pub fn name(?) -> ? {}"
+pub fn ${1:function_name}($2)${3/..*/ -> /}$3 {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet pri "print!(..)" b
+print!("$1"${2/..*/, /}$2);
+endsnippet
+
+snippet pln "println!(..)" b
+println!("$1"${2/..*/, /}$2);
+endsnippet
+
+snippet epln "eprintln!(..)" b
+eprintln!("$1"${2/..*/, /}$2);
+endsnippet
+
+snippet fmt "format!(..)"
+format!("$1"${2/..*/, /}$2);
+endsnippet
+
+snippet .it ".iter()" i
+.iter()$0
+endsnippet
+
+snippet .x ".expect()" 
+.expect("$1"${2/..*/, /}$2)
+endsnippet
+
+snippet .w ".unwrap()" 
+.unwrap()
+endsnippet
+
+snippet .wo ".unwrap_or()" 
+.unwrap_or("$1"${2/..*/, /}$2)
+endsnippet
+
+snippet .p ".parse()" 
+.parse()
+endsnippet
+
+
+snippet ty "Type <X, Y> "
+$1<$2 ${3/..*/, /}$3>
+endsnippet
+
+snippet matchsome "match Some or None"
+match $1 {
+	Some(${2:arg}) => $3,
+	None => $4,
+}
+endsnippet
+
+#Library specific
+## Imports
+snippet useclap "Import clap"
+extern crate clap;
+use clap::{Arg, App};  //In case of using SubCommand needs to be imported
+endsnippet
+
+snippet usecmd "Import Command"
+use std::process::Command;
+endsnippet
+
+snippet useregex "Import regex"
+extern crate regex;
+use regex::Regex;
+
+### Std
+
+snippet exit "Clean process exit"
+process::exit(1);
+endsnippet
+
+### Command
+
+snippet cmdnew "New Command to run"
+let mut cmd = Command::new("${1:python}");
+cmd.arg("${2:arg}");
+endsnippet
+
+snippet cmdrun "Run Command"
+match cmd.output(){
+	Ok(o) => {
+		// o.stdout --> gives vector of bytes
+		unsafe {
+		// String::from_utf8_unchecked(o.stdout); Doesn't check if output is utf8
+			println!("Output: {}", String::from_utf8_unchecked(o.stdout));
+		}
+	}
+	Err(e) => println!("Err: {}", e)
+}
+endsnippet
+
+
+
+### Clap
+snippet clapnew "Start clap config"
+let matches = App::new("${1:name}")
+					.version("0.1")
+					.author("Gaxpert")
+					.about("${2:about}")
+					${3:arguments}
+					.get_matches();
+endsnippet
+
+snippet claparg "Clap argument"
+.arg(Arg::with_name("${1:var_name}")
+	.short("${2:short_name}")
+	.long("${3:long_name}")
+	.help("${4:help}")
+	.takes_value(${5:false})
+	.required(${6:false}))
+endsnippet
+
+snippet clapgetv "Clap gets value from config"
+let ${1:var} = matches.value_of("${2:value_name}").unwrap();
+endsnippet
+
+snippet clapgetf "Clap gets flag from config"
+let ${1:var} = matches.is_present("${2:value_name}");
+endsnippet
+
+snippet clapgetvd "Clap gets value from config with default"
+let ${1:var} = matches.value_of("${2:value_name}").unwrap_or("${3:default_conf}");
+endsnippet
+
+### Term
+snippet useterm "Import term"
+extern crate term;
+endsnippet
+
+snippet termnew "Start term"
+let mut t = term::stdout().unwrap();
+endsnippet
+
+snippet termpl "Write with term"
+t.fg(term::color::${1:COLOR}).unwrap();
+write!(t, "${2:text}").unwrap();
+endsnippet
+
+snippet termpln "Write with term"
+t.fg(term::color::${1:COLOR}).unwrap();
+writeln!(t, "${2:text}").unwrap();
+endsnippet
+
+snippet termreset "Reset term"
+t.reset().unwrap();
+endsnippet
+
+
+# vim:ft=snippets:
+
+
