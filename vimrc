@@ -141,8 +141,8 @@ Plugin 'vim-latex/vim-latex'
 	"""""""
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'jupyter-vim/jupyter-vim'
-let g:jupyter_mapkeys = 0
+" Plugin 'jupyter-vim/jupyter-vim'
+" let g:jupyter_mapkeys = 0
 
 " Rust
 Plugin 'rust-lang/rust.vim'
@@ -307,6 +307,7 @@ let g:ctrlp_map = '<leader>ff'
 silent! nmap <leader>ft :NERDTreeToggle<CR>
 let g:ctrlp_open_new_file = 'v'
 
+
 	""""""""""""""""
 	"Editor control "
 	""""""""""""""""
@@ -332,6 +333,11 @@ nnoremap <Tab> za
 "Find and replace
 nnoremap S :%s//gi<Left><Left><Left>
 nmap <leader>ss :!
+"Comment out lines with
+nnoremap <leader>sc :g//Commentary<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+nmap <leader>cc gcap 
+
 
 
 
@@ -422,9 +428,9 @@ nnoremap <leader>du :diffupdate<Return>
 	"""""""""""""""""
 "Python jupyter
 	" autocmd Filetype python map <buffer> <F5> :JupyterRunFile<CR>
-	autocmd Filetype python map <buffer> <leader>x :JupyterRunFile<CR>
-	autocmd Filetype python map <buffer> <F6> :JupyterSendRange<CR>
-	autocmd Filetype go map <buffer> <leader>x :AsyncRun go run %<CR>
+	" autocmd Filetype python map <buffer> <leader>x :JupyterRunFile<CR>
+	" " autocmd Filetype python map <buffer> <F6> :JupyterSendRange<CR>
+	" autocmd Filetype go map <buffer> <leader>x :AsyncRun go run %<CR>
 
 " tnote filetype
 	autocmd BufNewFile, BufRead *.tnote set filetype=text

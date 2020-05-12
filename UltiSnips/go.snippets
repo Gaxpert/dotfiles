@@ -116,38 +116,112 @@ endsnippet
 
 # Libs
 ## Flags
+## With flag package
+# snippet importflag "Import Flag"
+# "flag"
+# endsnippet
+
+# snippet flagstr "Flag String Var"
+# ${1:varname} := flag.String("${2:arg}", "${3:default}","${4:description}")
+# endsnippet
+
+# snippet flagbool "Flag Bool Var"
+# ${1:varname} := flag.Bool("${2:arg}", ${3:false}, "${4:description}")
+# endsnippet
+
+# snippet flagint "Flag Int Var"
+# ${1:varname} := flag.Int("${2:arg}", ${3:42}, "${4:description}")
+# endsnippet
+	
+# snippet flagparse "Parse flags"
+# flag.Parse()
+# endsnippet
+
+# snippet flagverb "Logging verbosity"
+# v := flag.Bool("v", false, "Logging set to Debug")
+# vv := flag.Bool("vv", false, "Logging set to Trace")
+# flag.Parse()
+# log.SetLevel(log.InfoLevel)
+# if *v {
+# 	log.SetLevel(log.DebugLevel)
+# }
+# if *vv {
+# 	log.SetLevel(log.TraceLevel)
+# }
+# endsnippet
+## Flags
 snippet importflag "Import Flag"
-"flag"
+"gopkg.in/alecthomas/kingpin.v2"
 endsnippet
 
-snippet flagstr "Flag String Var"
-${1:varname} := flag.String("${2:arg}", "${3:default}","${4:description}")
+snippet flaginit "Init flag variables"
+var (
+	prog = kingpin.New("${1:name}", "${2:description}")	
+	)
 endsnippet
 
 snippet flagbool "Flag Bool Var"
-${1:varname} := flag.Bool("${2:arg}", ${3:false}, "${4:description}")
+${1:varname} = ${2:prog}.Flag("${3:arg}", "${4:description}").Short('${5:shortarg}').Default("${6:false}").Bool()
+endsnippet
+
+snippet flagstr "Flag String Var"
+${1:varname} = ${2:prog}.Flag("${3:arg}", "${4:description}").Short('${5:shortarg}').Default("${6:false}").String()
 endsnippet
 
 snippet flagint "Flag Int Var"
-${1:varname} := flag.Int("${2:arg}", ${3:42}, "${4:description}")
-endsnippet
-	
-snippet flagparse "Parse flags"
-flag.Parse()
+${1:varname} = ${2:prog}.Flag("${3:arg}", "${4:description}").Short('${5:shortarg}').Default("${6:0}").Int()
 endsnippet
 
-snippet flagverb "Logging verbosity"
-v := flag.Bool("v", false, "Logging set to Debug")
-vv := flag.Bool("vv", false, "Logging set to Trace")
-flag.Parse()
-log.SetLevel(log.InfoLevel)
-if *v {
-	log.SetLevel(log.DebugLevel)
-}
-if *vv {
+snippet flagip "Flag Ip Var"
+${1:varname} = ${2:prog}.Flag("${3:arg}", "${4:description}").Short('${5:shortarg}').Default("${6:127.0.0.1}").IP()
+endsnippet
+
+snippet flaglog "Flag for verbosity"
+verbosity = prog.Flag("verb", "Enable debugging").Short('v').Default("false").Bool()
+endsnippet
+
+snippet flagparseverb "Parse verbosity flag"
+if *verbosity {
 	log.SetLevel(log.TraceLevel)
 }
 endsnippet
+
+
+snippet flagarg "Flag Argument Var"
+${1:varname} = ${2:prog}.Arg("${3:arg}", "${4:description}").String()
+endsnippet
+
+snippet flagcomm "Flag Command"
+${1:command} = ${2:prog}.Command("${3:name}", "${4:description}")
+endsnippet
+
+snippet flagparsecomm "Parse Commands"
+${1:command}.FullCommand()
+endsnippet
+
+snippet flagswitch "Switch to parse commands"
+switch kingpin.MustParse(${1:prog}.Parse(os.Args[1:])){
+	case ${2:comm}.Fullcommand:
+		$3
+}
+endsnippet
+
+snippet flagparse "Parse flags"
+kingpin.MustParse(prog.Parse(os.Args[1:]))
+endsnippet
+
+# snippet flagverb "Logging verbosity"
+# v := flag.Bool("v", false, "Logging set to Debug")
+# vv := flag.Bool("vv", false, "Logging set to Trace")
+# flag.Parse()
+# log.SetLevel(log.InfoLevel)
+# if *v {
+# 	log.SetLevel(log.DebugLevel)
+# }
+# if *vv {
+# 	log.SetLevel(log.TraceLevel)
+# }
+# endsnippet
 	
 
 ## Logrus
@@ -193,4 +267,41 @@ if err == nil {
 }
 endsnippet
 
+snippet osruncmd "Run os command"
+out, err := exec.Command("${1:command}").Output()
+if err != nil {
+	log.Fatal(err)
+}
+endsnippet
+
+snippet strslice "New string slice"
+${1:var} := []string{}
+endsnippet
+
+snippet strsplit "Split string by"
+${1:var} := strings.Split(${2:string}, ${3:sep})
+endsnippet
+
+snippet strcontains "If string contains"
+if strings.Contains(${1:string}, ${2:substring}){
+	$3
+}
+endsnippet
+
+snippet strempty "Check if string is empty"
+if ${1:string} == "" {
+	${2:dostuff}
+}
+endsnippet
+
+snippet foritem "Loop for item in vec"
+for _, ${1:item} := range ${2:vec} {
+	$3
+}
+endsnippet
+
+
+snippet sliceappend "Append to slice"
+$1 = append($1, ${2:item})
+endsnippet
 	

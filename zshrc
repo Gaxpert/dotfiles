@@ -328,7 +328,8 @@ alias grep='grep --color=auto'
 #Clipboard
 #  echo TEST | setclip
 # alias setclip="xclip -i -sel c"
-# alias getclip="xclip -o -sel -c "
+alias getclip="xclip -selection c "
+
 
 
 
