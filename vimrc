@@ -172,6 +172,8 @@ Plugin 'unblevable/quick-scope'
 " Trigger a highlight only when pressing f and F.
 let g:qs_highlight_on_keys = ['f', 'F']
 
+
+
 "Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'

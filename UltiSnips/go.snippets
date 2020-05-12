@@ -304,4 +304,35 @@ endsnippet
 snippet sliceappend "Append to slice"
 $1 = append($1, ${2:item})
 endsnippet
+
+### HTTP
 	
+snippet httpGet "Http Get"
+resp, err := http.Get(${1:url})
+	if err != nil {
+		log.Fatal(err)
+	}
+endsnippet
+
+snippet httpGetReadBody "Http Get and Read body"
+resp, err := http.Get(${1:url})
+if err != nil {
+	log.Fatal(err)
+}
+defer resp.Body.Close()
+body, err := ioutil.ReadAll(resp.Body)
+if err != nil {
+	log.Fatal(err)
+}
+fmt.Println(string(body))
+endsnippet
+
+### REGEX
+snippet regexinit "Initiliaze regex"
+re1, err := regexp.Compile("${1:search}")
+endsnippet
+
+snippet regexFind "Find all matches"
+re1.FindAllString(${searchspace}, -1)
+endsnippet
+
