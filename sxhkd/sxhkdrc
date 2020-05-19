@@ -37,10 +37,10 @@ super + shift + BackSpace
 
 # Restart main config components
 super + shift + r; {r, p, h, s}
-	{ bspc wm -r, \
-	~/.scripts/polybar/reloadpolybar, \
+	{ bspc wm -r & notify-send "Reloaded bspwm", \
+	~/.scripts/polybar/reloadpolybar & notify-send "Reloaded polybar", \
 	polybar-msg cmd toggle, \
-	killall sxhkd && sxhkd &} 
+	killall sxhkd && notify-send "Reloaded sxhkd" & sxhkd &} 
 
 
 #### Desktop Control #####

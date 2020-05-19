@@ -23,6 +23,9 @@ path=$1
 rm ~/.config/bspwm -r
 ln -s $path"/bspwm" ~/.config/bspwm
 
+rm ~/.config/dunst -r
+ln -s $path"/dunst" ~/.config/dunst
+
 rm ~/.config/lf -r
 ln -s $path"/lf" ~/.config/lf
 
@@ -68,3 +71,4 @@ ln -s $path"/Xresources" ~/.Xresources
 
 rm ~/.zshrc
 ln -s $path"/zshrc" ~/.zshrc
+

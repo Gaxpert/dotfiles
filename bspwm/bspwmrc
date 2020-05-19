@@ -3,7 +3,7 @@ bspc rule -r "*"
 
 
 		###---Autostart---###
-/usr/bin/sxhkd &
+sxhkd -a space &
 xrdb ~/.Xresources 
 ~/.scripts/setUsCtrlSwap.sh
 nm-applet &
