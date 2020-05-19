@@ -2,9 +2,16 @@
 
 st=`~/.scripts/checkRunningProcess.sh firefox`
 
-if [[ $st == "Running" ]]
-then 
-	echo "%{B#666}%{F#0F0}  %{B- F-}"
+brows=`cat ~/.scripts/rofi/browser`
+
+if [[ $brows == "firefox" ]]; then
+	if [[ $st == "Running" ]]
+	then 
+		echo "%{B#666}%{F#0F0}  %{B- F-}"
+	else
+		echo "%{B#000}%{F#9cf}  %{B- F-}"
+	fi
 else
-	echo "%{B#000}%{F#F00}  %{B- F-}"
+	echo "%{B#000}%{F#333}  %{B- F-}"
 fi
+

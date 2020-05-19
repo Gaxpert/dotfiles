@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: killRunningProcess.sh
+#          FILE: scratchpad.sh
 # 
-#         USAGE: ./killRunningProcess.sh 
+#         USAGE: ./scratchpad.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,16 +13,22 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 07/10/2019 10:05
+#       CREATED: 05/16/20 04:41
 #      REVISION:  ---
 #===============================================================================
 
-set -o nounset                              # Treat unset variables as an error
+#!/usr/bin/bash
 
-#TODO improve, notify and check paths
+#Script o hide scratchpad, works well with classes
 
-ps_state=`./checkRunningProcess.sh $1`
-if [[ "$ps_state" == "Running" ]];then
-        pkill $1
+if [ -z $1 ]; then
+	echo "Usage: $0 <name of hidden scratchpad window>"
+	exit 1
 fi
+    
+pids=$(xdotool search --class ${1})
+for pid in $pids; do
+	echo "Toggle $pid"
+	bspc node $pid --flag hidden -f
+done
 

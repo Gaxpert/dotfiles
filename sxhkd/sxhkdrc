@@ -1,0 +1,192 @@
+#---BSPWM Bindings
+#
+#
+
+#Terminals
+super + Return
+	urxvt
+super + shift + Return
+	st
+
+#### System ####
+#Shutdown pc
+super + shift + Escape
+	~/.scripts/prompt "Are you sure you want to shutdown this computer? (Y/n)" "shutdown now"
+super + control + Escape
+	~/.scripts/prompt "Are you sure you want to reboot this computer? (Y/n)" reboot 
+#Log out
+super + shift + o
+	~/.scripts/prompt "Are you sure you want to log out? (Y/n)" "pkill -u $USER"
+#LockScreen. Run   "betterlockscreen -r path/to/image"  to cache the image
+super + x
+	betterlockscreen -l dim
+# Keylayout
+super + shift + p
+	~/.scripts/setPtCtrlNormal.sh
+super + shift + u
+	~/.scripts/setUsCtrlSwap.sh
+
+
+# Close Window
+super + BackSpace
+  xdo close
+# Kill Window
+super + shift + BackSpace
+  xdo kill
+
+
+# Restart main config components
+super + shift + r; {r, p, h, s}
+	{ bspc wm -r, \
+	~/.scripts/polybar/reloadpolybar, \
+	polybar-msg cmd toggle, \
+	killall sxhkd && sxhkd &} 
+
+
+#### Desktop Control #####
+super + Tab
+	bspc desktop --focus last
+# super + shift + Tab
+
+super + {q,w,e,1,2,3, grave, m}
+	bspc desktop -f {1-8}
+
+#Send window to desktop
+super + shift + {q,w,e,1,2,3, grave, m}
+  bspc node -d {1-8}
+
+super + control + {q,w,e,1,2,3, grave}
+  bspc node -d {1-7} && bspc desktop -f {1-7}
+
+#Focus next/prev node
+super + {p, n}
+	bspc node -f {next, prev}.local
+super + control {p, n}
+	bspc desktop -f {next, prev}
+
+#Send node to mon or desktop
+super + s; {s, d, q, w, e, 1, 2, 3, grave}
+	{bspc node -m DP-0, \
+	bspc node -m DP-2,\
+	bspc node -d 1,\
+	bspc node -d 2,\
+	bspc node -d 3,\
+	bspc node -d 4,\
+	bspc node -d 5,\
+	bspc node -d 6, \
+	bspc node -d 7}
+
+#### Node Control ####
+# Focus on window in direction
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+super + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
+
+#Swap window with direction
+super + control + {h, j, k, l}
+	bspc node -s {west, south, north, east}
+super + control + {Left,Down,Up,Right}
+	bspc node -s {west,south,north,east}
+
+#Focus floating
+super + i
+	bspc node -f next.floating
+
+#Rotate tree
+super + control + {Prior, Next}
+	bspc node @parent -C {forward, backward}
+
+#Monocle mode
+super + f
+	bspc desktop -l next
+super + shift + f
+	~/.scripts/bspwm/bspcleanfullscreen
+
+#Rotate
+super + o
+	bspc node @parent -R 90
+
+# Resize floating windows
+# super + r; {1,2,q,w,a,s}
+# 	{xdo resize -w 930 -h 1020 && xdo move -x 10 -y 40, \
+# 	xdo resize -w 930 -h 1020 && xdo move -x 980 -y 40, \
+# 	xdo resize -w 930 -h 510 && xdo move -x 10 -y 40, \
+# 	xdo resize -w 930 -h 510 && xdo move -x 10 -y 560, \
+# 	xdo resize -w 930 -h 510 && xdo move -x 980 -y 40, \
+# 	xdo resize -w 930 -h 510 && xdo move -x 980 -y 560, }
+
+super + r : {h,j,k,l, w,a,s,d}
+	{ bspc node -z right -50 0 & bspc node -z left -50 0, \ 
+	bspc node -z top 0 50 & bspc node -z bottom 0 50, \
+	bspc node -z top 0 -50 & bspc node -z bottom 0 -50, \
+	bspc node -z right 50 0 & bspc node -z left 50 0, \
+	bspc node -z bottom 0 -50, \  
+	bspc node -z right -50 0, \ 
+	bspc node -z bottom 0 50, \ 
+	bspc node -z right 50 0, \ }
+
+#Toogle floating
+super + y
+	bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+super + control + y
+	bspc node focused.tiled -t pseudo_tiled || bspc node focused.pseudo_tiled -t tiled
+
+
+
+##### Aplications ####
+#App launch
+super + a; {b,c,d, n,  o, p, y}
+	{ brave,\
+	chromium,\
+	gnome-disks, \
+	~/.scripts/rofi/rofi_notes.sh -a "Gaxpert" -e "urxvt vim" -o "$HOME/.notes" -p "home/z/go/bin/glow", \
+	opera,\
+	~/.scripts/bspwm/bsp_launch_or_hide keepassxc, \
+	~/.scripts/bspwm/bsp_launch_or_hide_by_name youtubi "urxvt -name youtubi -e /home/z/.scripts/youtubi.sh"  }
+
+super + d
+	rofi -show run -font "Inconsolata 18" -lines 5 -width 15
+
+super + u
+	~/.scripts/rofi/rofi_launch_websearch.sh
+super + control + u
+	~/.scripts/rofi/rofi_launch_websearch_toogle.sh
+
+super + bracketleft
+	nautilus
+
+super + shift + bracketleft
+	~/.scripts/browserVpned.sh
+
+super + bracketright
+	~/.scripts/bspwm/bsp_launch_or_hide firefox
+
+
+
+### MPC
+super + control + m
+	urxvt -name Music -e ncmpcpp & urxvt -name MusicVis -e "vis" & urxvt -name TempD1 -e ~/.scripts/bspwm/bsp_rotate_desktop.sh 8
+
+super + {9, 0, minus}
+	{mpc prev, mpc toogle, mpc next}
+
+##Sound
+super + comma
+	~/.scripts/pulsemixer_volume.sh -10
+super + slash
+	~/.scripts/pulsemixer_volume.sh +10
+super + period 
+	pulsemixer --toggle-mute
+super + shift + period
+	urxvt -e pulsemixer
+super + control + period
+	pavucontrol
+
+#Printscreen
+Print
+	screengrab -a
+shift + Print
+	screengrab -r
+control + Print
+	screengrab -f

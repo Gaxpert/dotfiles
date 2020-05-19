@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: killRunningProcess.sh
+#          FILE: pulsemixer_volume.sh
 # 
-#         USAGE: ./killRunningProcess.sh 
+#         USAGE: ./pulsemixer_volume.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,16 +13,17 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 07/10/2019 10:05
+#       CREATED: 05/18/20 12:07
 #      REVISION:  ---
 #===============================================================================
 
-set -o nounset                              # Treat unset variables as an error
+#Raises or lowers volume
+#ex  $0 +5 / $0 -5
 
-#TODO improve, notify and check paths
+vol=`pulsemixer --get-volume | cut -d " " -f 1`
 
-ps_state=`./checkRunningProcess.sh $1`
-if [[ "$ps_state" == "Running" ]];then
-        pkill $1
-fi
+let vol=$vol$1
+
+pulsemixer --set-volume $vol
+
 

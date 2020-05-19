@@ -10,8 +10,9 @@ set $TERMINAL2 st
 set $TERMINAL urxvt 
 
 # Monitors
-set $monCentro HDMI-0
-set $monEsq DP-0
+# set $monCentro HDMI-0
+# set $monEsq DP-0
+set $monCentro DP-0
 set $monDir DP-2
 set $monExtra DP-4
 

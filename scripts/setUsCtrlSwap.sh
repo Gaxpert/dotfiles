@@ -9,10 +9,11 @@ setxkbmap us
 
 
 # /usr/bin/setxkbmap -option "altwin:swap_alt_win" # Alt is swapped with Win
+
 /usr/bin/setxkbmap -option "altwin:swap_lalt_lwin" # Left Alt is swapped with Win
 
 # Ctrl L if holded is Ctrl, if tapped is Esc key
-xcape -e 'Control_L=Escape'
+# xcape -e 'Control_L=Escape'
 #Rctrol to Ralt
 xmodmap ~/.Xmodmap
 

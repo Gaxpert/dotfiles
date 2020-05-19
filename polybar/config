@@ -14,7 +14,7 @@ line-color = ${bar/bottom.background}
 line-size = 16
 
 border-bottom-size = 2
-border-color = #880000
+border-color = #000088
 
 spacing = 2
 padding-right = 5
@@ -31,7 +31,7 @@ font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
 font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
 modules-left =   battery cpu memory wireless-network expressvpn 
-modules-center = i3
+modules-center = bspwm
 modules-right = mpd mpd_status pkg  hiddenSearchBrowser keymap date 
 
 
@@ -40,8 +40,10 @@ tray-padding = 4
 tray-transparent = false
 tray-background = #000000
 
-[bar/top]
-monitor = HDMI-0
+enable-ipc = true
+
+[bar/top1]
+monitor = DP-0
 width = 100%
 height = 34
 
@@ -70,8 +72,8 @@ font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
 #Hipotesse1 - Only top bar
 modules-left =    cpu memory wireless-network expressvpn 
-modules-center = i3
-modules-right = mpd mpd_status pkg  hiddenSearchBrowser soundOut keymap date 
+modules-center = bspwm
+modules-right = mpd mpd_status bspmonocle hiddenSearchBrowser soundOut keymap pkg  date 
 
 
 tray-position = right
@@ -79,8 +81,10 @@ tray-padding = 4
 tray-transparent = false
 tray-background = #000000
 
-[bar/top1]
-monitor = DP-0
+enable-ipc = true
+
+[bar/top]
+monitor = HDMI
 width = 100%
 height = 34
 
@@ -147,10 +151,11 @@ font-6 = "Font Awesome 5 Brands:style=Regular:pixelsize=12;2"
 
 #Hipotesse1 - Only top bar
 modules-left =    
-modules-center = i3
+modules-center = bspwm
 modules-right =    date 
 
 
+enable-ipc = true
 
 
 [bar/bottom]
@@ -297,73 +302,25 @@ animation-charging-framerate = 750
 
 [module/bspwm]
 type = internal/bspwm
+label-focused = %name%
+label-focused-background = #A0A0A0
+label-focused-underline = 0000CC
+label-focused-padding = 1
 
-ws-icon-0 = term;?
-ws-icon-1 = web;?
-ws-icon-2 = code;?
-ws-icon-3 = music;?
-ws-icon-4 = irssi;?
-ws-icon-default = ?
-
-format = <label-state> <label-mode>
-
-label-dimmed-underline = ${BAR.background}
-
-label-active = %icon%
-label-active-foreground = #fff
-label-active-background = #773f3f3f
-label-active-underline = #c9665e
-label-active-font = 4
-label-active-padding = 4
-
-label-occupied = %icon%
-label-occupied-foreground = #dd
-label-occupied-underline = #666
-label-occupied-font = 4
-label-occupied-padding = 4
-
-label-urgent = %icon%
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-underline = #9b0a20
-label-urgent-font = 4
-label-urgent-padding = 4
-
-label-empty = %icon%
-label-empty-foreground = #55
-label-empty-font = 4
-label-empty-padding = 4
-
-label-monocle = ?
-label-monocle-underline = ${module/bspwm.label-active-underline}
-label-monocle-background = #33ffffff
-label-monocle-padding = 2
-
-label-locked = ?
-label-locked-foreground = #bd2c40
-label-locked-underline = ${module/bspwm.label-monocle-underline}
-label-locked-padding = ${module/bspwm.label-monocle-padding}
-
-label-sticky = ?
-label-sticky-foreground = #fba922
-label-sticky-underline = ${module/bspwm.label-monocle-underline}
-label-sticky-padding = ${module/bspwm.label-monocle-padding}
-
-label-private = ?
-label-private-foreground = #bd2c40
-label-private-underline = ${module/bspwm.label-monocle-underline}
-label-private-padding = ${module/bspwm.label-monocle-padding}
-
-[module/bspwm-tmp]
-type = internal/bspwm
-format = <label-state>
-
-label-active = ?
-label-active-padding = 1
-label-occupied = ?
+label-occupied = %name%
 label-occupied-padding = 1
-label-empty = ?
+
+label-urgent = %name%!
+label-urgent-background = #CC0000
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = 000000
 label-empty-padding = 1
+
+format-underline =
+format-background =
+format-padding =
 
 [module/cpu]
 type = internal/cpu
@@ -453,7 +410,7 @@ bar-progress-empty-foreground = #44
 
 [module/wireless-network]
 type = internal/network
-interface = enp39s0 
+interface = wlp5s0
 # interface = enp39s0  
 interval = 1.0
 ping-interval = 10
@@ -711,6 +668,7 @@ exec = .scripts/polybar/songPlaying.sh 30
 
 ; vim:ft=dosini
 
+
 [module/mpd_status]
 type = custom/script
 exec = ~/.scripts/polybar/getMpdStatus.sh
@@ -745,6 +703,11 @@ exec = ~/.scripts/polybar/clementineSong.sh
 [module/hiddenSearchBrowser]
 type = custom/script
 exec = ~/.scripts/polybar/hiddenSearchBrowser.sh
+interval = 10
 
+[module/bspmonocle]
+type = custom/script
+exec = ~/.scripts/polybar/bsp_monocle.sh
+interval = 2
 
 

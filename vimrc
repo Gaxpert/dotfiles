@@ -2,18 +2,22 @@
 " Leader Keys
 let mapleader = "\<Space>"
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+"If doesnt exist install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+
 
 	"""""""""""""
 	"   THEMES  "
 	" """""""""""
-Plugin 'fcpg/vim-orbital'
-Plugin 'fcpg/vim-fahrenheit'
+Plug 'fcpg/vim-orbital'
+Plug 'fcpg/vim-fahrenheit'
 
 
 	"""""""""""""
@@ -21,16 +25,17 @@ Plugin 'fcpg/vim-fahrenheit'
 	" """""""""""
 " Plugin 'maxmellon/vim-jsx-pretty' "Pretify js code (react)
 " Plugin 'jelera/vim-javascript-syntax'
-Plugin 'gorodinskiy/vim-coloresque' "See color codes
+"See color codes
+Plug 'gorodinskiy/vim-coloresque', { 'for': ['html', 'css', 'js']}
 
 
 	"""""""""""""
 	"   Bar     "
 	" """""""""""
-Plugin 'itchyny/lightline.vim' "More simple
+Plug 'itchyny/lightline.vim' "More simple
 set laststatus=2
 set noshowmode "Removes normal bar since its no longer nedded
-Plugin 'mengelbrecht/lightline-bufferline'
+Plug 'mengelbrecht/lightline-bufferline'
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
@@ -56,23 +61,23 @@ autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 	"""""""""""""
 	"  FilesNav "
 	" """""""""""
-Plugin 'scrooloose/nerdtree'   "Nerd tree
+Plug 'scrooloose/nerdtree'   "Nerd tree
 let NERDTreeQuitOnOpen=1 "Close nerdtree after file is open
-Plugin 'kien/ctrlp.vim' "fuzzy file finder
-Plugin 'jeetsukumaran/vim-buffergator'
+Plug 'kien/ctrlp.vim' "fuzzy file finder
+Plug 'jeetsukumaran/vim-buffergator'
 
 
 	"""""""""""""
 	"  Comment  "
 	" """""""""""
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 " Plugin 'tomtom/tcomment_vim'
 
 
 	"""""""""""""
 	"  Tag Bar  "
 	" """""""""""
-Plugin 'majutsushi/tagbar' " pacman ctags
+Plug 'majutsushi/tagbar' " pacman ctags
 
 
 
@@ -80,12 +85,13 @@ Plugin 'majutsushi/tagbar' " pacman ctags
 	"  Autocomplete + snippets = supertab "
 	" """""""""""""""""""""""""""""""""""""
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-Plugin 'ervandew/supertab'
-Plugin 'valloric/youcompleteme' "yay vim-youcompleteme-git
+Plug 'ervandew/supertab'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
+" Plug 'valloric/youcompleteme' "yay vim-youcompleteme-git
 "go to .vim/bundle/youcompleteme ;   python3 install --all   (important,
 "install for used languages)
 " make YCM compatible with UltiSnips (using supertab)
@@ -102,25 +108,22 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 " inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Down>"
 " inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 
-Plugin 'maralla/completor.vim'
+Plug 'maralla/completor.vim'
 
 	""""""""""""""""""""""""
 	"  Language Specific   "
 	" """"""""""""""""""""""
-Plugin 'bash-support.vim'
-Plugin 'fatih/vim-go'
+Plug 'vim-scripts/bash-support.vim', { 'for': 'sh'}
+Plug 'fatih/vim-go', { 'for': 'go' }
 
 "
-Plugin 'racer-rust/vim-racer'
-set hidden
-let g:racer_cmd = "/home/z/.cargo/bin/racer"
-let g:racer_insert_paren = 1
+
 	"""""""
 	"latex"
 	"""""""
 " Plugin 'lervag/vimtex'
 " let g:vimtex_complete_recursive_bib = 1
-Plugin 'vim-latex/vim-latex'
+Plug 'vim-latex/vim-latex', { 'for': 'tex'}
 " Plugin 'latex-box-team/latex-box'
 " let g:Tex_MultipleCompileFormats='pdf,bib,pdf'
 
@@ -139,44 +142,47 @@ Plugin 'vim-latex/vim-latex'
 	"""""""
 	"python"
 	"""""""
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'jmcantrell/vim-virtualenv'
-" Plugin 'jupyter-vim/jupyter-vim'
+Plug 'vim-scripts/indentpython.vim', { 'for': 'py'}
+Plug 'jmcantrell/vim-virtualenv', { 'for': 'py'}
+" Plugin 'jupyter-vim/jupyter-vim', { 'for': 'py'}
 " let g:jupyter_mapkeys = 0
 
 " Rust
-Plugin 'rust-lang/rust.vim'
-
+Plug 'rust-lang/rust.vim', { 'for': 'rs'}
+Plug 'racer-rust/vim-racer', { 'for': 'rs'}
+set hidden
+let g:racer_cmd = "/home/z/.cargo/bin/racer"
+let g:racer_insert_paren = 1
 
 	""""""""""""
 	"  Extras "
 	" """"""""""
-Plugin 'junegunn/limelight.vim'
-Plugin 'powerline/fonts'
-Plugin 'yggdroot/indentline' "Indent bar 
-Plugin 'frazrepo/vim-rainbow'
+Plug 'junegunn/limelight.vim'
+Plug 'powerline/fonts'
+Plug 'yggdroot/indentline' "Indent bar 
+Plug 'frazrepo/vim-rainbow'
 let g:rainbow_active = 1
 
-Plugin 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold'
 let g:SimpylFold_docstring_preview=1
-Plugin 'restore_view.vim'
+Plug 'vim-scripts/restore_view.vim'
 " Plugin 'machakann/vim-swap'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 " Plugin 'tpope/vim-surround'
 "  Del separator    ds(    delete separator <sep>  ("[ ....
 "  Change separardor  cs(
 " in visual mode   S <separator> ex: VS(
 
-Plugin 'potatoesmaster/i3-vim-syntax'
-Plugin 'unblevable/quick-scope'   
+"Plug 'potatoesmaster/i3-vim-syntax'
+Plug 'unblevable/quick-scope'   
 " Trigger a highlight only when pressing f and F.
 let g:qs_highlight_on_keys = ['f', 'F']
 
 
 
 "Git
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Run async commands, replaces !
 " :AsyncRun
@@ -189,29 +195,21 @@ Plugin 'airblade/vim-gitgutter'
 " Plugin 'camspiers/lens.vim'
 
 "Spell check
-Plugin 'dpelle/vim-LanguageTool'
+Plug 'dpelle/vim-LanguageTool'
 
 
 
 "Must be last loaded plugin!!!!!
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Initialize plugin system
+call plug#end()
+
+
+
 
 " set tabstop=4 smartab expandtab
 set noshowmode  " vim-airline plugin replaces 

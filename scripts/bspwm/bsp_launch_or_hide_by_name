@@ -1,0 +1,43 @@
+#!/bin/bash - 
+#===============================================================================
+#
+#          FILE: scratchpad_by_ps.sh
+# 
+#         USAGE: ./scratchpad_by_ps.sh 
+# 
+#   DESCRIPTION: 
+# 
+#       OPTIONS: ---
+#  REQUIREMENTS: ---
+#          BUGS: ---
+#         NOTES: ---
+#        AUTHOR: YOUR NAME (), 
+#  ORGANIZATION: 
+#       CREATED: 05/16/20 17:52
+#      REVISION:  ---
+#===============================================================================
+
+
+#!/usr/bin/bash
+
+#Script to launch or hide scratchpad in terminal instances
+#ex:   urxvt -name youtubi -e ~/.script/youtubi.sh
+
+if [ -z $1 ]; then
+	echo "Usage: $0 <instance> <command to launch instance>"
+	echo "    Note: path to command must be full ( ~/ might not work )"
+	exit 1
+fi
+    
+
+result=$( ps aux | grep -v grep | grep -i -e VSZ -e $1 |wc | cut -d " " -f 7)
+
+if [ $result == "3" ];then
+	$2 &
+else
+	pids=$(xdotool search --name ${1})
+	for pid in $pids; do
+		bspc node $pid --flag hidden -f
+	done
+fi
+

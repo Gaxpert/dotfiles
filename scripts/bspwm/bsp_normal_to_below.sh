@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: killRunningProcess.sh
+#          FILE: bsptogglelayer.sh
 # 
-#         USAGE: ./killRunningProcess.sh 
+#         USAGE: ./bsptogglelayer.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,16 +13,12 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 07/10/2019 10:05
+#       CREATED: 05/16/20 23:50
 #      REVISION:  ---
 #===============================================================================
 
-set -o nounset                              # Treat unset variables as an error
+NODES=$(bspc query --nodes .normal --desktop focused)
 
-#TODO improve, notify and check paths
-
-ps_state=`./checkRunningProcess.sh $1`
-if [[ "$ps_state" == "Running" ]];then
-        pkill $1
-fi
-
+for node in $NODES; do
+	bspc node $node -l below
+done

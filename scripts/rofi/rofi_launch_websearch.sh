@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: killRunningProcess.sh
+#          FILE: rofi_search_browser.sh
 # 
-#         USAGE: ./killRunningProcess.sh 
+#         USAGE: ./rofi_search_browser.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,16 +13,15 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 07/10/2019 10:05
+#       CREATED: 05/18/20 11:24
 #      REVISION:  ---
 #===============================================================================
 
-set -o nounset                              # Treat unset variables as an error
+browser=`cat ~/.scripts/rofi/browser`
 
-#TODO improve, notify and check paths
-
-ps_state=`./checkRunningProcess.sh $1`
-if [[ "$ps_state" == "Running" ]];then
-        pkill $1
+if [[ $browser == "firefox" ]]; then
+	~/.scripts/rofi/rofi-MyWebSearch.sh firefox
+else
+	~/.scripts/rofi/rofi-MyWebSearch.sh brave
 fi
 

@@ -17,6 +17,8 @@
 #      REVISION:  ---
 #===============================================================================
 
+#TODO improve
+
 read -r -p "Desktop? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then

@@ -59,7 +59,6 @@ then
 	$BROWSER "$search"
 else
 	$BROWSER "$search"
-	i3-msg '[class="firefox"] scratchpad show'
 fi
 
 

@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: killRunningProcess.sh
+#          FILE: bsp_monocle.sh
 # 
-#         USAGE: ./killRunningProcess.sh 
+#         USAGE: ./bsp_monocle.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -13,16 +13,19 @@
 #         NOTES: ---
 #        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 07/10/2019 10:05
+#       CREATED: 05/18/20 02:31
 #      REVISION:  ---
 #===============================================================================
 
-set -o nounset                              # Treat unset variables as an error
 
-#TODO improve, notify and check paths
 
-ps_state=`./checkRunningProcess.sh $1`
-if [[ "$ps_state" == "Running" ]];then
-        pkill $1
+#NOTE: The field might depend on other factors
+state=`bspc wm -g | cut -d ":" -f 8`
+
+if [[ $state == "LM" ]];then
+	echo "%{F#cff}  %{F-}"
+else
+	echo "%{F#333}  %{F-}"
 fi
+
 
