@@ -218,7 +218,9 @@ control + Print
 	screengrab -f
 
 #Brightness
-XF86KdbBrightnessUp
+XF86MonBrightnessUp
 	xbacklight -inc 5
-XF86KdbBrightnessDown
+XF86MonBrightnessDown
+	xbacklight -dec 5
+	
 

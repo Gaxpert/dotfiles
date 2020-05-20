@@ -32,7 +32,8 @@ font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
 modules-left =   battery cpu memory wireless-network expressvpn 
 modules-center = bspwm
-modules-right = mpd mpd_status pkg  hiddenSearchBrowser keymap date 
+modules-right = mpd mpd_status  bspmonocle hiddenSearchBrowser keymap pkg date 
+
 
 
 tray-position = right
