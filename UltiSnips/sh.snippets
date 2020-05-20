@@ -113,3 +113,26 @@ else
 	${3:Notexists}
 fi
 endsnippet
+
+snippet argsinit "Set arguments"
+while getopts "${1:a:}" opt; do
+	case $opt in
+		${1:a}) ${2:var}="$OPTARG"
+			;;
+		\?) echo "Invalid option -$OPTARG" >&2
+	esac
+done
+endsnippet
+
+snippet argscheck "Check number of args"
+if [ "$#" -eq 0 ]; then
+	echo "Usage: \$0 "
+	echo "       \$0 "
+	exit 0
+fi
+endsnippet 
+
+
+
+
+

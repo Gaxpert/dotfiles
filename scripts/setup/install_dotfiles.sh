@@ -17,6 +17,12 @@
 #      REVISION:  ---
 #===============================================================================
 
+if [ "$#" -eq 0 ]; then
+	echo "Usage: $0 "
+	echo "       $0 "
+	exit 0
+fi
+
 path=$1
 
 #Folders
@@ -30,7 +36,7 @@ rm ~/.config/lf -r
 ln -s $path"/lf" ~/.config/lf
 
 rm ~/.config/mpd -r
-ln -s $path"/mpd" ~/.config/mpd
+ln -s $path"/mpd" ~/.mpd
 
 rm ~/.ncmpcpp -r
 ln -s $path"/ncmpcpp" ~/.ncmpcpp
@@ -50,9 +56,13 @@ ln -s $path"/scripts" ~/.scripts
 rm ~/.config/sxhkd -r
 ln -s $path"/sxhkd" ~/.config/sxhkd
 
-rm ~/.vim/bundle/vim-snippets/UltiSnips -r
-ln -s $path"/UltiSnips" ~/.vim/bundle/vim-snippets/UltiSnips
-echo $path
+#Vundle
+#rm ~/.vim/bundle/vim-snippets/UltiSnips -r
+#ln -s $path"/UltiSnips" ~/.vim/bundle/vim-snippets/UltiSnips
+#Vim-plug
+rm ~/.vim/plugged/vim-snippets/Ultisnips -r
+ln -s $path"/UltiSnips" ~/.vim/plugged/vim-snippets/Ultisnips
+
 #Files
 rm ~/.profile
 ln -s $path"/profile" ~/.profile

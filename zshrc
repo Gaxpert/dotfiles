@@ -330,6 +330,10 @@ alias grep='grep --color=auto'
 # alias setclip="xclip -i -sel c"
 alias getclip="xclip -selection c "
 
+#Backups
+alias mybackup_internal_hdd="~/.scripts/setup/backup_to_Data.sh"
+alias mybackup="~/.scripts/setup/backup_to_external.sh -o /run/media/Main"
+alias myrestore="~/.scripts/setup/restore_from_external.sh -o /run/media/Main -m ~/Musica"
 
 
 

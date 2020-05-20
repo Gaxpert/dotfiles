@@ -6,7 +6,9 @@ bspc rule -r "*"
 sxhkd -a space &
 xrdb ~/.Xresources 
 ~/.scripts/setUsCtrlSwap.sh
+killall nm-applet
 nm-applet &
+killall pa-applet
 pa-applet &
 
 #TODO 
