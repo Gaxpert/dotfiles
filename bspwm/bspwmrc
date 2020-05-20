@@ -7,6 +7,7 @@ sxhkd -a space &
 xrdb ~/.Xresources 
 ~/.scripts/setUsCtrlSwap.sh
 nm-applet &
+pa-applet &
 
 #TODO 
 #sleep and exec picom
@@ -84,15 +85,16 @@ bspc rule -a URxvt:youtubi state=floating sticky=on rectangle=500x100+250+120
 bspc rule -a firefox sticky=on state=floating rectangle=930x1020+10+40
 bspc rule -a KeePassXC sticky=on state=floating 
 #Temp terminals
-bspc rule -a URxvt:TempQ1 state=floating rectangle=930x510+10+40
-bspc rule -a URxvt:TempQ2 state=floating rectangle=930x510+10+560
-bspc rule -a URxvt:TempQ3 state=floating rectangle=930x510+980+40
-bspc rule -a URxvt:TempQ4 state=floating rectangle=930x510+980+560
+bspc rule -a St:TempQ1 state=floating rectangle=930x510+10+40
+bspc rule -a St:TempQ2 state=floating rectangle=930x510+10+560
+bspc rule -a St:TempQ3 state=floating rectangle=930x510+980+40
+bspc rule -a St:TempQ4 state=floating rectangle=930x510+980+560
+bspc rule -a St:TempH1 state=floating rectangle=930x1020+10+40
 bspc rule -a URxvt:TempH1 state=floating rectangle=930x1020+10+40
-bspc rule -a URxvt:TempH2 state=floating rectangle=930x1020+980+40
-bspc rule -a URxvt:TempScript1 state=floating rectangle=930x510+10+40
-bspc rule -a URxvt:TempScript2 state=floating rectangle=930x510+980+40
-bspc rule -a st:TempH1 state=floating rectangle=930x1020+10+40
+bspc rule -a St:TempH2 state=floating rectangle=930x1020+980+40
+bspc rule -a St:TempScript1 state=floating rectangle=930x510+10+40
+bspc rule -a St:TempScript2 state=floating rectangle=930x510+980+40
+# bspc rule -a St:TempH1 state=floating rectangle=930x1020+10+40
 
 bspc rule -a URxvt:Music state=pseudo_tiled rectangle=930x520+980+40
 bspc rule -a URxvt:MusicVis state=pseudo_tiled rectangle=1280x300+980+40

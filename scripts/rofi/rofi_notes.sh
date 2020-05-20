@@ -25,14 +25,20 @@ get_notes() {
 
 edit_note() {
     note_location=$1
-    urxvt -name TempH2 -e vim "$note_location"
+    st -name TempH2 -e vim "$note_location"
 }
 
 read_note(){
 	note_location=$1 
 	#Laptop
-	st -n TempH1 -f "MesloLGS NF:size=14" -g "75x22" -e bash -c "/usr/bin/glow $note_location -p less "
-	# urxvt -name TempH1 -e bash -c "/usr/bin/glow $note_location -p less"
+	# urxvt -name TempH1 -e glow $note_location -p less 
+	# st -n TempH1 -e glow $note_location -p less 2>>/tmp/st
+	if [[ $(hostname) == 'dracul' ]]; then
+		st -n TempH1 -e /usr/bin/glow $note_location -p less
+	elif [[ $(hostname) == 'Battlestation' ]]; then
+		st -n TempH1 -e /home/z/go/bin/glow $note_location -p less 
+	fi
+	# urxvt -name TempH1 -e bash -c "/usr/bin/glow $note_location -p less"j
 	#Desktop
 	# st -n TempH1 -g 100x32 -e bash -c "/home/z/go/bin/glow $note_location -p less"
 }
