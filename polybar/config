@@ -1,7 +1,46 @@
 
 
+[bar/topVm]
+monitor = Virtual1
+width = 100%
+height = 34
 
-#examples  https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes
+background = #000000
+foreground = #ccffffff
+
+line-color = ${bar/bottom.background}
+line-size = 16
+
+border-bottom-size = 2
+border-color = #CCCC00
+
+spacing = 2
+padding-right = 5
+module-margin = 1
+font-3 = "Tamsyn:pixelsize=12;0"
+font-4 = "Roboto:size=11:weight=bold;2"
+font-5 = "Noto Sans:size=11;1"
+#font-6 =  pango:DejaVu Sans Mono, Awesome 8
+font-7 = "NotoSans-Regular:size=8;-1"
+font-6 = "MaterialIcons:size=10;0"
+#font-5 = Termsynu:size=8:antialias=false;-2
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
+font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
+
+modules-left =   cpu memory wireless-network expressvpn 
+modules-center = bspwm
+modules-right = bspmonocle hiddenSearchBrowser keymap pkg date 
+
+
+
+tray-position = right
+tray-padding = 4
+tray-transparent = false
+tray-background = #000000
+
+enable-ipc = true
+
 [bar/topLaptop]
 monitor = eDP1
 width = 100%

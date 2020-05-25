@@ -2,6 +2,7 @@
 bspc rule -r "*"
 
 
+
 		###---Autostart---###
 sxhkd -a space &
 xrdb ~/.Xresources 
@@ -24,7 +25,8 @@ pa-applet &
 	 ~/.config/polybar/launch_desktop.sh &
 	 nitrogen --restore &
  elif [[ $(hostname) == 'c3po' ]]; then
-	echo ""
+	feh --bg-scale /home/z/.scripts/setup/resources/Arch2.jpg
+	 ~/.config/polybar/launch_vm.sh &
  fi
 
 

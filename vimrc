@@ -18,7 +18,8 @@ call plug#begin('~/.vim/plugged')
 	" """""""""""
 Plug 'fcpg/vim-orbital'
 Plug 'fcpg/vim-fahrenheit'
-
+Plug 'morhetz/gruvbox'
+set background=dark
 
 	"""""""""""""
 	"   WebDev  "
@@ -196,6 +197,8 @@ Plug 'airblade/vim-gitgutter'
 
 "Spell check
 Plug 'dpelle/vim-LanguageTool'
+
+
 
 
 
@@ -462,7 +465,7 @@ augroup END
 "Colors 
 syntax on
 " colo orbital
-colo fahrenheit
+colo gruvbox
 
 " For some reason AutoPairs gets some weird space keybinds. Untoggle them in
 " insert mode
