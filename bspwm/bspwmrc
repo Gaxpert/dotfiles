@@ -27,6 +27,12 @@ pa-applet &
  elif [[ $(hostname) == 'c3po' ]]; then
 	feh --bg-scale /home/z/.scripts/setup/resources/Arch2.jpg
 	 ~/.config/polybar/launch_vm.sh &
+
+	 #Load vbox modules
+	  modprobe -a vboxguest vboxsf vboxvideo
+	  VBoxClient --clipboard
+
+
  fi
 
 
@@ -37,7 +43,7 @@ pa-applet &
      bspc monitor DP-0 -d 1 2 4 5 7 8
      bspc monitor DP-2 -d 3 6 9 
  elif [[ $(hostname) == 'c3po' ]]; then
-     bspc monitor Virtual1 -d 1 2 3 4 5 6 7 
+     bspc monitor -d 1 2 3 4 5 6 7 
  fi
 
 ###---Global Settings---###
