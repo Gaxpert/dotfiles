@@ -14,7 +14,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 #space git   
 #https://github.com/jaagr/dots/blob/master/.local/etc/themer/themes/space/polybar
-# polybar top &
+polybar top0 &
 polybar top1 &
 polybar top2 &
 #polybar bottom &

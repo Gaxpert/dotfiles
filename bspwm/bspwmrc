@@ -14,16 +14,21 @@ pa-applet &
 
 #TODO 
 #sleep and exec picom
+~/.scripts/sleepAndExec.sh picom &
 
 #Specific autostarts
  if [[ $(hostname) == 'dracul' ]]; then
 	feh --bg-scale /home/z/Images/wallpapers/Arch1.png 
 	 ~/.config/polybar/launch_laptop.sh &
 	 blueman-applet &
+
  elif [[ $(hostname) == 'Battlestation' ]]; then
 	 ~/.scripts/screenlayout.sh &
 	 ~/.config/polybar/launch_desktop.sh &
+	 #change trackball buttons
+	xinput set-button-map `xinput list | grep Trackball | cut -d "=" -f 2 | cut -c-2` 3 2 1
 	 nitrogen --restore &
+
  elif [[ $(hostname) == 'c3po' ]]; then
 	feh --bg-scale /home/z/.scripts/setup/resources/Arch2.jpg
 	 ~/.config/polybar/launch_vm.sh &
@@ -31,24 +36,45 @@ pa-applet &
 	 #Load vbox modules
 	  modprobe -a vboxguest vboxsf vboxvideo
 	  VBoxClient --clipboard
-
-
  fi
 
 
 ###---MONITORS---###
  if [[ $(hostname) == 'dracul' ]]; then
      bspc monitor eDP1 -d 1 2 3 4 7 8 5 6 
+
+	 bsp-layout set tall 1
+	 bsp-layout set tall 2
+	 bsp-layout set tall 3
+	 bsp-layout set tall 4
+	 bsp-layout set tall 5
+	 bsp-layout set tall 6
  elif [[ $(hostname) == 'Battlestation' ]]; then
-     bspc monitor DP-0 -d 1 2 4 5 7 8
+	 bspc monitor HDMI-0 -d 2 5 7 8
+     bspc monitor DP-0 -d 1 4
      bspc monitor DP-2 -d 3 6 9 
+
+	 bsp-layout set even 1
+	 bsp-layout set tall 2
+	 bsp-layout set tiled 3
+	 bsp-layout set even 4
+	 bsp-layout set tall 5
+	 bsp-layout set tiled 6
  elif [[ $(hostname) == 'c3po' ]]; then
      bspc monitor -d 1 2 3 4 5 6 7 
+	 bsp-layout set tall 1
+	 bsp-layout set tall 2
+	 bsp-layout set tall 3
+	 bsp-layout set tall 4
+	 bsp-layout set tall 5
+	 bsp-layout set tall 6
  fi
+
+
+
 
 ###---Global Settings---###
 bspc config automatic_scheme alternate
-# bspc config automatic_scheme longest_side
 bspc config initial_polarity second_child
 bspc config pointer_modifier mod4
 bspc config pointer_action1 move
@@ -76,19 +102,12 @@ bspc config border_width 2
 bspc config window_gap 10
 
 ###---Rules---###
-# bspc rule -a mpv state=fullscreen
-# bspc rule -a Zathura state=tiled
-# bspc rule -a Screenkey manage=off
-# bspc rule -a guvcview state=floating rectangle=480x270+1440+810 sticky=on layer=above
 
 bspc rule -a Opera desktop=5
 bspc rule -a URxvt:Music desktop=8
 bspc rule -a URxvt:MusicVis desktop=8
 bspc rule -a URxvt:TempD1 desktop=1 
 bspc rule -a Gnome-disks state=floating
-#Music
-#Burp
-#Keepass
 
 
 bspc rule -a URxvt:youtubi state=floating sticky=on rectangle=500x100+250+120

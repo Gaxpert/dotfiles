@@ -20,7 +20,7 @@
 
 
 #NOTE: The field might depend on other factors
-state=`bspc wm -g | cut -d ":" -f 8`
+state=`bspc wm -g | cut -d ":" -f 12`
 
 if [[ $state == "LM" ]];then
 	echo "%{F#cff}  %{F-}"

@@ -79,6 +79,12 @@ ln -s $path"/Xmodmap" ~/.Xmodmap
 rm ~/.Xresources
 ln -s $path"/Xresources" ~/.Xresources
 
+rm ~/.config/zathura -r 
+ln -s $path"/zathura" ~/.config/zathura
+
 rm ~/.zshrc
 ln -s $path"/zshrc" ~/.zshrc
+
+
+
 

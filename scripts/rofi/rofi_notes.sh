@@ -25,7 +25,7 @@ get_notes() {
 
 edit_note() {
     note_location=$1
-    st -name TempH2 -e vim "$note_location"
+    st -n TempH2 -e vim "$note_location"
 }
 
 read_note(){

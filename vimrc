@@ -175,6 +175,8 @@ Plug 'jiangmiao/auto-pairs'
 " in visual mode   S <separator> ex: VS(
 
 "Plug 'potatoesmaster/i3-vim-syntax'
+Plug 'kovetskiy/sxhkd-vim'
+
 Plug 'unblevable/quick-scope'   
 " Trigger a highlight only when pressing f and F.
 let g:qs_highlight_on_keys = ['f', 'F']
@@ -338,16 +340,13 @@ nnoremap S :%s//gi<Left><Left><Left>
 nmap <leader>ss :!
 "Comment out lines with
 nnoremap <leader>sc :g//Commentary<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-
+"comment paragraph
 nmap <leader>cc gcap 
 
+" vip  --> highlight paragraph
+"run of visual
+vmap <leader>r :norm 
 
-
-
-
-
-
-	""""""""""""""""
 	"Plugins control "
 	""""""""""""""""
 "Emacs style -->  <leader>a  X   (App)
