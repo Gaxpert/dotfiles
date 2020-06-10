@@ -20,6 +20,7 @@ Plug 'fcpg/vim-orbital'
 Plug 'fcpg/vim-fahrenheit'
 Plug 'morhetz/gruvbox'
 set background=dark
+" Plug 'dylanaraps/wal.vim'
 
 	"""""""""""""
 	"   WebDev  "
@@ -465,6 +466,7 @@ augroup END
 syntax on
 " colo orbital
 colo gruvbox
+" colorscheme wal
 
 " For some reason AutoPairs gets some weird space keybinds. Untoggle them in
 " insert mode

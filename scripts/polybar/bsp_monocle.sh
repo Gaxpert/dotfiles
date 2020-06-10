@@ -20,7 +20,11 @@
 
 
 #NOTE: The field might depend on other factors
-state=`bspc wm -g | cut -d ":" -f 12`
+if [[ `hostname` == "dracul" ]]; then
+	state=`bspc wm -g | cut -d ":" -f 10`
+else
+	state=`bspc wm -g | cut -d ":" -f 12`
+fi
 
 if [[ $state == "LM" ]];then
 	echo "%{F#cff}  %{F-}"

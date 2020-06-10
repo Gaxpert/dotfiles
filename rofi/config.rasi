@@ -143,4 +143,10 @@ configuration {
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
+
+/* # Dark theme. */
+theme: "~/.cache/wal/colors-rofi-dark";
+
+/* # Light theme. */
+/* theme: "~/.cache/wal/colors-rofi-light"; */
 }

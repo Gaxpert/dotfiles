@@ -6,7 +6,7 @@
 super + Return
 	urxvt
 #Floating
-super + shift + Return
+super + control + Return
 	st -n TempQ1
 
 #### System ####
@@ -32,7 +32,7 @@ super + shift + u
 super + BackSpace
   xdo close
 # Kill Window
-super + shift + BackSpace
+super + control + BackSpace
   xdo kill
 
 
@@ -43,14 +43,15 @@ super + shift + r; {r, p, h, s}
 	polybar-msg cmd toggle, \
 	killall sxhkd && notify-send "Reloaded sxhkd" & sxhkd -a space &} 
 
-
 #### Desktop Control #####
 super + Tab
 	bspc desktop --focus last
 # super + shift + Tab
 
-super + {q,w,e,1,2,3, grave, m}
-	bspc desktop -f {1-8}
+super + {q,w,e,1,2,3, grave}
+	bspc desktop -f {1-7}
+super + m
+	bspc desktop -f 8 && bspc node -f north.local
 
 #Send window to desktop
 super + shift + {q,w,e,1,2,3, grave, m}
@@ -132,15 +133,7 @@ super + shift + l ; {t, m, w, e, l}
 super + o
 	bspc node @parent -R 90
 
-# Resize floating windows
-# super + r; {1,2,q,w,a,s}
-# 	{xdo resize -w 930 -h 1020 && xdo move -x 10 -y 40, \
-# 	xdo resize -w 930 -h 1020 && xdo move -x 980 -y 40, \
-# 	xdo resize -w 930 -h 510 && xdo move -x 10 -y 40, \
-# 	xdo resize -w 930 -h 510 && xdo move -x 10 -y 560, \
-# 	xdo resize -w 930 -h 510 && xdo move -x 980 -y 40, \
-# 	xdo resize -w 930 -h 510 && xdo move -x 980 -y 560, }
-
+# Resize 
 super + r : {h,j,k,l,Left, Down, Up, Right, w,a,s,d}
 	{ bspc node -z right -50 0 & bspc node -z left -50 0, \ 
 	bspc node -z top 0 50 & bspc node -z bottom 0 50, \
@@ -186,27 +179,25 @@ super + a; {b,c,d, n,  o, p, y, m}
 super + d
 	rofi -show run -font "Inconsolata 18" -lines 5 -width 15
 
+
+#web search
 super + control + u
-	~/.scripts/rofi/rofi_launch_websearch_toogle.sh
-
-# [
-super + bracketleft
-	nautilus
-super + shift + bracketleft
-	~/.scripts/browserVpned.sh
-# ]
-super + shift + bracketright
-	~/.scripts/bspwm/bsp_launch_or_hide firefox
+	~/.scripts/rofi/rofi-MyWebSearch.sh brave
 super + bracketright
-	~/.scripts/rofi/rofi_launch_websearch.sh
+	~/.scripts/rofi/rofi-MyWebSearch.sh firefox
+super + control + bracketright
+	~/.scripts/bspwm/bsp_launch_or_hide firefox
 
+#file manager
+super + bracketleft
+	urxvt -e zsh -c /home/z/go/bin/lf
+super + control + bracketleft
+	nautilus
 
 
 ### MPC
-# super + control + m
-
 super + {9, 0, minus}
-	{mpc prev, mpc toogle, mpc next}
+	{mpc prev, mpc toggle, mpc next}
 
 ##Sound
 XF86AudioMute
@@ -222,23 +213,38 @@ super + slash
 	~/.scripts/pulsemixer_volume.sh +10
 super + period 
 	~/.scripts/pulsemixer_mute.sh
-super + shift + period
-	urxvt -e pulsemixer
 super + control + period
+	urxvt -e pulsemixer
+super + shift + period
 	pavucontrol
 
-#Printscreen
+##Printscreen
+#Print
+#	screengrab -a
+#shift + Print
+#	screengrab -r
+#control + Print
+#	screengrab -f
+
+#Copy selection to clipboard
 Print
-	screengrab -a
+	maim -s | xclip -selection clipboard -t image/png 
+#Copy selection to file in Images/prints
 shift + Print
-	screengrab -r
+	maim -s | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage ~/Images/prints/"$(date +%s_%h%d_%H:%M:%S).png"
+#Copy active window to clipboard
 control + Print
-	screengrab -f
+	maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+
 
 #Brightness
 XF86MonBrightnessUp
 	xbacklight -inc 5
 XF86MonBrightnessDown
+	xbacklight -dec 5
+super + 8
+	xbacklight -inc 5
+super + 7
 	xbacklight -dec 5
 	
 

@@ -22,12 +22,13 @@ set ignorecase true
 set shellopts '-eu'
 
 cmd open ${{
-    case $(file --mime-type $f -b) in
-        text/*) $EDITOR $fx;;
-        image/*) nomacs $fx;;
-        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$f";;
+        video/*|image/*/application/pdf) xdg-open "$f" & disown;;
+        *) xdg-open "$f" ;;
     esac
 }}
+
 cmd mkdir ${{
   printf "Directory Name: "
   read ans
