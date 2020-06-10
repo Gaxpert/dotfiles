@@ -1,6 +1,7 @@
 #!/bin/sh
 bspc rule -r "*"
 
+BACKGROUND="/home/z/Images/wallpapers/wallhaven2.jpg"
 
 
 		###---Autostart---###
@@ -13,11 +14,12 @@ killall pa-applet
 pa-applet &
 killall udiskie
 udiskie --no-automount --tray &
-killall redshift
+#reset before applying 
+redshift -x
 redshift -l 38.7:-9.1  -t 5700:3600 -g 0.8 -m randr -v &
 
 #wal persist on reboot
-wal -i "$(< "${HOME}/.cache/wal/wal")"
+# wal -i "$(< "${HOME}/.cache/wal/wal")"
 
 #TODO 
 #sleep and exec picom
@@ -25,10 +27,11 @@ wal -i "$(< "${HOME}/.cache/wal/wal")"
 
 #Specific autostarts
  if [[ $(hostname) == 'dracul' ]]; then
+	 feh --bg-scale /home/z/Images/wallpapers/wallhaven-new1_2.jpg &
 	 xset -b  #remove beep
-	feh --bg-scale /home/z/Images/wallpapers/wallhaven-new1_2.jpg &
 	 ~/.config/polybar/launch_laptop.sh &
 	 blueman-applet &
+
 
 	 #Gif desktop background. Expensive on cpu
 	# xwinwrap -g 200x200+840+490 -fdt -o 0.7 -sh circle -d -- gifview -w WID ~/.config/bspwm/quarksmall.gif -a
