@@ -9,6 +9,7 @@ if [[ $(hostname) == 'Battlestation' ]]; then
 	sed -i "6cBACKGROUND_MON_1=\"$1\"" ~/.config/bspwm/bspwmrc
 	sed -i "7cBACKGROUND_MON_2=\"$2\"" ~/.config/bspwm/bspwmrc
 	sed -i "8cBACKGROUND_MON_3=\"$3\"" ~/.config/bspwm/bspwmrc
+	~/.scripts/polybar/setPolybarColors.sh
 else
 	feh --bg-scale $1 &
 	wal -n -i $1

@@ -7,12 +7,12 @@ monitor = Virtual1
 width = 100%
 height = 34
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors_laptop.background}
+foreground = ${colors_laptop.foreground}
 # background = #000000
 # foreground = #ccffffff
 
-line-color = ${colors.secondary}
+line-color = ${colors_laptop.secondary}
 line-size = 16
 
 border-bottom-size = 2
@@ -30,7 +30,7 @@ font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
 font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
-modules-left =   cpu memory expressvpn 
+modules-left =   cpu_laptop memory expressvpn 
 modules-center = bspwm
 modules-right = bspmonocle hiddenSearchBrowser keymap pkg date 
 
@@ -96,17 +96,17 @@ monitor = HDMI-0
 width = 100%
 height = 34
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors_desktop.background}
+foreground = ${colors_desktop.foreground}
 # background = #000000
 # foreground = #ccffffff
 
-line-color = ${colors.secondary}
+line-color = ${colors_desktop.secondary}
 # line-color = #000000
 line-size = 16
 
 border-bottom-size = 2
-border-color = ${colors.shade4}
+border-color = ${colors_desktop.shade4}
 
 spacing = 2
 padding-right = 5
@@ -123,14 +123,14 @@ font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
 font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
 #Hipotesse1 - Only top bar
-modules-left =    cpu memory wireless-network-battlestation expressvpn 
+modules-left =    cpu_desktop memory_desktop wireless-network-battlestation expressvpn 
 modules-center = bspwm
 modules-right = mpd mpd_status bspmonocle hiddenSearchBrowser soundOut keymap pkg  date 
 
 
 tray-position = right
 tray-padding = 4
-tray-background = ${colors.background}
+tray-background = ${colors_desktop.background}
 
 override-redirect = true
 wm-restack = bspwm
@@ -141,17 +141,17 @@ monitor = DP-0
 width = 100%
 height = 34
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors_desktop.background}
+foreground = ${colors_desktop.foreground}
 # background = #000000
 # foreground = #ccffffff
 
 # line-color = ${bar/bottom.background}
-line-color = ${colors.secondary}
+line-color = ${colors_desktop.secondary}
 line-size = 16
 
 border-bottom-size = 2
-border-color = ${colors.shade4}
+border-color = ${colors_desktop.shade4}
 # border-color = #880000
 
 spacing = 2
@@ -169,7 +169,7 @@ font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
 font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
 #Hipotesse1 - Only top bar
-modules-left =    cpu memory expressvpn 
+modules-left =    cpu_desktop memory_desktop expressvpn 
 modules-center = bspwm
 modules-right = mpd mpd_status bspmonocle hiddenSearchBrowser soundOut keymap pkg  date 
 
@@ -190,17 +190,17 @@ monitor = DP-2
 width = 100%
 height = 34
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors_desktop.background}
+foreground = ${colors_desktop.foreground}
 # background = #000000
 # foreground = #ccffffff
 
 border-bottom-size = 2
-border-color = ${colors.shade4}
+border-color = ${colors_desktop.shade4}
 # border-color = #880000
 
 # line-color = ${bar/bottom.background}
-line-color = ${colors.secondary}
+line-color = ${colors_desktop.secondary}
 line-size = 16
 
 spacing = 2
@@ -516,6 +516,26 @@ bar-used-empty-font = 6
 bar-used-empty-foreground = ${colors_laptop.foreground}
 interval = 3
 
+[module/memory_desktop]
+type = internal/memory
+format = <bar-used> <label>
+label = "  " 
+#label = RAM %gb_used%/%gb_free%
+
+bar-used-width = 30
+bar-used-foreground-0 = ${colors_desktop.shade1}
+bar-used-foreground-1 = ${colors_desktop.shade5}
+bar-used-foreground-2 = ${colors_desktop.shade9}
+bar-used-foreground-3 = ${colors_desktop.shade13}
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = ${colors_desktop.foreground}
+bar-used-fill = -
+bar-used-fill-font = 6
+bar-used-empty = -
+bar-used-empty-font = 6
+bar-used-empty-foreground = ${colors_desktop.foreground}
+interval = 3
 
 [module/mpd]
 type = internal/mpd
