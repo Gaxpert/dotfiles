@@ -1,7 +1,7 @@
 #!/bin/sh
 bspc rule -r "*"
 
-BACKGROUND="a"
+BACKGROUND="/home/z/Images/wallpapers/Best/Cool3.png"
 
 
 		###---Autostart---###
@@ -30,7 +30,7 @@ redshift -l 38.7:-9.1  -t 5700:3600 -g 0.8 -m randr -v &
 
 #Specific autostarts
  if [[ $(hostname) == 'dracul' ]]; then
-	 feh --bg-scale /home/z/Images/wallpapers/wallhaven-new1_2.jpg &
+	 feh --bg-scale $BACKGROUND &
 	 xset -b  #remove beep
 	 ~/.config/polybar/launch_laptop.sh &
 	 blueman-applet &

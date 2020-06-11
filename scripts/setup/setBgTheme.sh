@@ -7,6 +7,6 @@ if [[ $(hostname) == 'Battlestation' ]]; then
 else
 	feh --bg-scale $1 &
 	wal -n -i $1
-	sed -i "4s/.*/BACKGROUND=\"$1\"/" ~/.config/bspwm/bspwmrc
+	sed -i "4cBACKGROUND=\"$1\"" ~/.config/bspwm/bspwmrc
 fi
 
