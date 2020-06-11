@@ -115,7 +115,7 @@ line-color = ${colors.secondary}
 line-size = 16
 
 border-bottom-size = 2
-border-color = ${colors.secondary}
+border-color = ${colors.shade4}
 
 spacing = 2
 padding-right = 5
@@ -157,7 +157,7 @@ line-color = ${colors.secondary}
 line-size = 16
 
 border-bottom-size = 2
-border-color = ${colors.secondary}
+border-color = ${colors.shade4}
 # border-color = #880000
 
 spacing = 2
@@ -199,7 +199,7 @@ foreground = ${colors.foreground}
 # foreground = #ccffffff
 
 border-bottom-size = 2
-border-color = ${colors.secondary}
+border-color = ${colors.shade4}
 # border-color = #880000
 
 # line-color = ${bar/bottom.background}

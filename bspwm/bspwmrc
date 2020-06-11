@@ -1,7 +1,12 @@
 #!/bin/sh
 bspc rule -r "*"
-
+#Laptop bg
 BACKGROUND="/home/z/Images/wallpapers/Best/Cool3.png"
+#Battlestation bg
+BACKGROUND_MON_1="/home/z/Images/wallpapers/Best/wallhaven-j5pr65.png"
+BACKGROUND_MON_2="/home/z/Images/wallpapers/Best/wallhaven-j5vvry.png"
+BACKGROUND_MON_3="/home/z/Images/wallpapers/Best/wallhaven-j5p7pp.png"
+
 
 
 		###---Autostart---###
@@ -46,7 +51,7 @@ redshift -l 38.7:-9.1  -t 5700:3600 -g 0.8 -m randr -v &
 	 ~/.config/polybar/launch_desktop.sh &
 	 #change trackball buttons
 	xinput set-button-map `xinput list | grep Trackball | cut -d "=" -f 2 | cut -c-2` 3 2 1
-	 nitrogen --restore &
+	feh --bg-scale $BACKGROUND_MON_1 $BACKGROUND_MON_2 $BACKGROUND_MON_3 &
 
  elif [[ $(hostname) == 'c3po' ]]; then
 	feh --bg-scale /home/z/.scripts/setup/resources/Arch2.jpg
