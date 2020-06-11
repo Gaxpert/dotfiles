@@ -55,6 +55,9 @@ tray-position = right
 tray-padding = 4
 tray-background = #000000
 
+override-redirect = true
+wm-restack = bspwm
+
 enable-ipc = true
 
 [bar/topLaptop]
@@ -97,6 +100,9 @@ modules-right = mpd mpd_status  bspmonocle hiddenSearchBrowser keymap pkg date
 tray-position = right
 tray-padding = 4
 tray-background = ${colors.background}
+
+override-redirect = true
+wm-restack = bspwm
 
 enable-ipc = true
 
@@ -141,6 +147,9 @@ tray-position = right
 tray-padding = 4
 tray-background = ${colors.background}
 
+override-redirect = true
+wm-restack = bspwm
+
 enable-ipc = true
 [bar/top1]
 monitor = DP-0
@@ -184,6 +193,9 @@ tray-position = right
 tray-padding = 4
 tray-background = #000000
 
+override-redirect = true
+wm-restack = bspwm
+
 enable-ipc = true
 
 
@@ -225,6 +237,8 @@ modules-left =
 modules-center = bspwm
 modules-right =    date 
 
+override-redirect = true
+wm-restack = bspwm
 
 enable-ipc = true
 
@@ -376,7 +390,7 @@ type = internal/bspwm
 label-focused = %name%
 # label-focused-background = #A0A0A0
 label-focused-background = ${colors.background}
-label-focused-underline = ${colors.shade4}
+label-focused-underline = ${colors.shade1}
 # label-focused-underline = ${colors.foreground}
 # label-focused-underline = 0000CC
 label-focused-padding = 1
