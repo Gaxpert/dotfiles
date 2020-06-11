@@ -9,9 +9,11 @@ if ! updates_aur=$(yay -Qum 2> /dev/null | wc -l); then
 fi
 
 updates=$(("$updates_arch" + "$updates_aur"))
+shade1=`~/.scripts/getWalColors.sh 3`
+
 
 if [ "$updates" -gt 0 ]; then
-    echo "%{B#666}%{F#F00}  $updates %{B- F-}"
+    echo "%{F#BA1010}  $updates %{F-}"
 else
-    echo "%{B#000}%{F#0F0}  $updates %{B- F-}"
+    echo "%{F$shade1}  $updates %{F-}"
 fi

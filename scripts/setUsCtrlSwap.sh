@@ -17,5 +17,6 @@ setxkbmap us
 #Rctrol to Ralt
 xmodmap ~/.Xmodmap
 
+notify-send "US layout set"
 
 

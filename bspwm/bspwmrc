@@ -1,7 +1,7 @@
 #!/bin/sh
 bspc rule -r "*"
 #Laptop bg
-BACKGROUND="/home/z/Images/wallpapers/Best/Cool3.png"
+BACKGROUND="/home/z/Images/wallpapers/wallhaven-493ve8.jpg"
 #Battlestation bg
 BACKGROUND_MON_1="/home/z/Images/wallpapers/Best/wallhaven-j5pr65.png"
 BACKGROUND_MON_2="/home/z/Images/wallpapers/Best/wallhaven-j5vvry.png"
@@ -169,7 +169,7 @@ bspc rule -a St:TempScript2 state=floating rectangle=930x510+980+40
 # bspc rule -a St:TempH1 state=floating rectangle=930x1020+10+40
 
 bspc rule -a URxvt:Music state=floating rectangle=1030x520+450+80
-bspc rule -a URxvt:MusicVis state=floating rectangle=1500x350+200+720 border=off
+bspc rule -a St:MusicVis state=floating rectangle=1500x350+200+720 border=off
 
 ~/.scripts/bspwm/bsp_floating_workspace &
 # ~/.scripts/bspwm/bsp_pseudotiling_workspace &

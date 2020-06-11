@@ -76,7 +76,7 @@ font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
 font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
-modules-left =   battery cpu memory wireless-network-laptop expressvpn 
+modules-left =   battery cpu_laptop memory_laptop wireless-network-laptop expressvpn 
 modules-center = bspwm
 modules-right = mpd mpd_status  bspmonocle hiddenSearchBrowser keymap pkg date 
 
@@ -347,9 +347,9 @@ label-discharging= %percentage%
 label-full = %percentage%
 
 ramp-capacity-0 = 
-ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-0-foreground = ${colors_laptop.shade13}
 ramp-capacity-1 = 
-ramp-capacity-1-foreground = #ffa900
+ramp-capacity-1-foreground = ${colors_laptop.shade8}
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
@@ -357,11 +357,11 @@ ramp-capacity-4 = 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
 bar-capacity-fill = ?
-bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-foreground = ${colors_laptop.shade3}
 bar-capacity-fill-font = 3
 bar-capacity-empty = ?
 bar-capacity-empty-font = 3
-bar-capacity-empty-foreground = #44ffffff
+bar-capacity-empty-foreground = ${colors_laptop.shade15}
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -396,6 +396,54 @@ label-empty-padding = 1
 format-underline =
 format-background =
 format-padding =
+
+[module/cpu_laptop]
+type = internal/cpu
+interval = 0.5
+format = <ramp-coreload> <label>
+label = " "  
+
+ramp-coreload-spacing = 1
+ramp-coreload-0 = 
+ramp-coreload-0-foreground = ${colors_laptop.shade1}
+ramp-coreload-1 = 
+ramp-coreload-1-foreground = ${colors_laptop.shade3}
+ramp-coreload-2 = 
+ramp-coreload-2-foreground = ${colors_laptop.shade5}
+ramp-coreload-3 = 
+ramp-coreload-3-foreground = ${colors_laptop.shade7}
+ramp-coreload-4 = 
+ramp-coreload-4-foreground = ${colors_laptop.shade9}
+ramp-coreload-5 = 
+ramp-coreload-5-foreground = ${colors_laptop.shade11}
+ramp-coreload-6 = 
+ramp-coreload-6-foreground = ${colors_laptop.shade13}
+ramp-coreload-7 = 
+ramp-coreload-7-foreground = ${colors_laptop.shade15}
+
+[module/cpu_desktop]
+type = internal/cpu
+interval = 0.5
+format = <ramp-coreload> <label>
+label = " "  
+
+ramp-coreload-spacing = 1
+ramp-coreload-0 = 
+ramp-coreload-0-foreground = ${colors_desktop.shade1}
+ramp-coreload-1 = 
+ramp-coreload-1-foreground = ${colors_desktop.shade3}
+ramp-coreload-2 = 
+ramp-coreload-2-foreground = ${colors_desktop.shade5}
+ramp-coreload-3 = 
+ramp-coreload-3-foreground = ${colors_desktop.shade7}
+ramp-coreload-4 = 
+ramp-coreload-4-foreground = ${colors_desktop.shade9}
+ramp-coreload-5 = 
+ramp-coreload-5-foreground = ${colors_desktop.shade11}
+ramp-coreload-6 = 
+ramp-coreload-6-foreground = ${colors_desktop.shade13}
+ramp-coreload-7 = 
+ramp-coreload-7-foreground = ${colors_desktop.shade15}
 
 [module/cpu]
 type = internal/cpu
@@ -446,6 +494,28 @@ bar-used-empty = -
 bar-used-empty-font = 6
 bar-used-empty-foreground = #444444
 interval = 3
+
+[module/memory_laptop]
+type = internal/memory
+format = <bar-used> <label>
+label = "  " 
+#label = RAM %gb_used%/%gb_free%
+
+bar-used-width = 30
+bar-used-foreground-0 = ${colors_laptop.shade1}
+bar-used-foreground-1 = ${colors_laptop.shade5}
+bar-used-foreground-2 = ${colors_laptop.shade9}
+bar-used-foreground-3 = ${colors_laptop.shade13}
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = ${colors_laptop.foreground}
+bar-used-fill = -
+bar-used-fill-font = 6
+bar-used-empty = -
+bar-used-empty-font = 6
+bar-used-empty-foreground = ${colors_laptop.foreground}
+interval = 3
+
 
 [module/mpd]
 type = internal/mpd

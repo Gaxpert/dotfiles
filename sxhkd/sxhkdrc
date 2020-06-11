@@ -174,7 +174,7 @@ super + a; {b,c,d, n,  o, p, y, m}
 	opera,\
 	~/.scripts/bspwm/bsp_launch_or_hide keepassxc, \
 	~/.scripts/bspwm/bsp_launch_or_hide_by_name youtubi "urxvt -name youtubi -e /home/z/.scripts/youtubi.sh", \
-	urxvt -name Music -e ncmpcpp & urxvt -name MusicVis -e "vis" & urxvt -name TempD1 -e ~/.scripts/bspwm/bsp_rotate_desktop.sh 8 }
+	urxvt -name Music -e ncmpcpp & st -n MusicVis -e "vis" & urxvt -name TempD1 -e ~/.scripts/bspwm/bsp_rotate_desktop.sh 8 }
 
 super + d
 	rofi -show run -font "Inconsolata 18" -lines 5 -width 15

@@ -20,6 +20,7 @@ setxkbmap -layout pt -option
 #Rctrol to Ralt
 xmodmap ~/.Xmodmap
 
+notify-send "PT layout set"
 
 
 
