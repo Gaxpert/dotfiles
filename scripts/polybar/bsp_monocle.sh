@@ -20,16 +20,18 @@
 
 
 #NOTE: The field might depend on other factors
-if [[ `hostname` == "dracul" ]]; then
-	state=`bspc wm -g | cut -d ":" -f 10`
+if [[ `hostname` == "Battlestation" ]]; then
+	state=`bspc wm -g | cut -d "-" -f 3`
 else
-	state=`bspc wm -g | cut -d ":" -f 12`
+	state=`bspc wm -g | cut -d ":" -f 10`
 fi
 
-if [[ $state == "LM" ]];then
-	echo "%{F#cff}  %{F-}"
-else
-	echo "%{F#333}  %{F-}"
-fi
+case "$state" in
+	*LM*)
+		echo "%{F#cff}  %{F-}"
+		;;
+	*)
+		echo "%{F#333}  %{F-}"
+esac
 
 
