@@ -167,7 +167,7 @@ map tr restore_trash
 
 map s<space> stripspace
 
-map - $~/.config/lf/draw_image.sh $f
+map ss $~/.config/lf/draw_image.sh $f
 #
 # Movement
 # map ga cd ~/

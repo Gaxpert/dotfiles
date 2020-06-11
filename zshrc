@@ -26,6 +26,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle chrissicool/zsh-256color
 antigen bundle ael-code/zsh-colored-man-pages
 antigen bundle softmoth/zsh-vim-mode
+antigen bundle kutsan/zsh-system-clipboard
 
 
 #theme
@@ -582,8 +583,7 @@ ex=:\
 
 # neofetch
 
-(wal -r &)
-
+cat /home/z/.cache/wal/sequences
     
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

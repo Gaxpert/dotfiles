@@ -6,6 +6,17 @@ primary = ${xrdb:color1:#222}
 secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
 
+; Active Shade
+shade0 = ${xrdb:color0}
+shade1 = ${xrdb:color1}
+shade2 = ${xrdb:color2}
+shade3 = ${xrdb:color3}
+shade4 = ${xrdb:color4}
+shade5 = ${xrdb:color5}
+shade6 = ${xrdb:color6}
+shade7 = ${xrdb:color7}
+shade8 = ${xrdb:color8}
+
 [bar/topVm]
 monitor = Virtual1
 width = 100%
@@ -16,7 +27,7 @@ foreground = ${colors.foreground}
 # background = #000000
 # foreground = #ccffffff
 
-line-color = ${bar/bottom.background}
+line-color = ${colors.secondary}
 line-size = 16
 
 border-bottom-size = 2
@@ -34,7 +45,7 @@ font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
 font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
-modules-left =   cpu memory wireless-network expressvpn 
+modules-left =   cpu memory expressvpn 
 modules-center = bspwm
 modules-right = bspmonocle hiddenSearchBrowser keymap pkg date 
 
@@ -42,7 +53,6 @@ modules-right = bspmonocle hiddenSearchBrowser keymap pkg date
 
 tray-position = right
 tray-padding = 4
-tray-transparent = false
 tray-background = #000000
 
 enable-ipc = true
@@ -57,11 +67,12 @@ foreground = ${colors.foreground}
 # background = #000000
 # foreground = #ccffffff
 
-line-color = ${colors.background}
+# line-color = ${colors.background}
+line-color = ${colors.secondary}
 line-size = 16
 
 border-bottom-size = 2
-border-color = #000088
+border-color = ${colors.secondary}
 
 spacing = 2
 padding-right = 5
@@ -77,7 +88,7 @@ font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
 font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
-modules-left =   battery cpu memory wireless-network expressvpn 
+modules-left =   battery cpu memory wireless-network-laptop expressvpn 
 modules-center = bspwm
 modules-right = mpd mpd_status  bspmonocle hiddenSearchBrowser keymap pkg date 
 
@@ -85,8 +96,7 @@ modules-right = mpd mpd_status  bspmonocle hiddenSearchBrowser keymap pkg date
 
 tray-position = right
 tray-padding = 4
-tray-transparent = false
-tray-background = #000000
+tray-background = ${colors.background}
 
 enable-ipc = true
 
@@ -95,14 +105,17 @@ monitor = HDMI-0
 width = 100%
 height = 34
 
-background = #000000
-foreground = #ccffffff
+background = ${colors.background}
+foreground = ${colors.foreground}
+# background = #000000
+# foreground = #ccffffff
 
-line-color = #000000
+line-color = ${colors.secondary}
+# line-color = #000000
 line-size = 16
 
 border-bottom-size = 2
-border-color = #880000
+border-color = ${colors.secondary}
 
 spacing = 2
 padding-right = 5
@@ -119,15 +132,14 @@ font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
 font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
 #Hipotesse1 - Only top bar
-modules-left =    cpu memory wireless-network expressvpn 
+modules-left =    cpu memory wireless-network-battlestation expressvpn 
 modules-center = bspwm
 modules-right = mpd mpd_status bspmonocle hiddenSearchBrowser soundOut keymap pkg  date 
 
 
 tray-position = right
 tray-padding = 4
-tray-transparent = false
-tray-background = #000000
+tray-background = ${colors.background}
 
 enable-ipc = true
 [bar/top1]
@@ -135,14 +147,18 @@ monitor = DP-0
 width = 100%
 height = 34
 
-background = #000000
-foreground = #ccffffff
+background = ${colors.background}
+foreground = ${colors.foreground}
+# background = #000000
+# foreground = #ccffffff
 
-line-color = ${bar/bottom.background}
+# line-color = ${bar/bottom.background}
+line-color = ${colors.secondary}
 line-size = 16
 
 border-bottom-size = 2
-border-color = #880000
+border-color = ${colors.secondary}
+# border-color = #880000
 
 spacing = 2
 padding-right = 5
@@ -159,14 +175,13 @@ font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;2"
 font-0 = "Font Awesome 5 Brands:style=Regular:pixelsize=9;2"
 
 #Hipotesse1 - Only top bar
-modules-left =    cpu memory wireless-network expressvpn 
+modules-left =    cpu memory expressvpn 
 modules-center = bspwm
 modules-right = mpd mpd_status bspmonocle hiddenSearchBrowser soundOut keymap pkg  date 
 
 
 tray-position = right
 tray-padding = 4
-tray-transparent = false
 tray-background = #000000
 
 enable-ipc = true
@@ -178,13 +193,17 @@ monitor = DP-2
 width = 100%
 height = 34
 
-background = #000000
-foreground = #ccffffff
+background = ${colors.background}
+foreground = ${colors.foreground}
+# background = #000000
+# foreground = #ccffffff
 
 border-bottom-size = 2
-border-color = #880000
+border-color = ${colors.secondary}
+# border-color = #880000
 
-line-color = ${bar/bottom.background}
+# line-color = ${bar/bottom.background}
+line-color = ${colors.secondary}
 line-size = 16
 
 spacing = 2
@@ -460,9 +479,33 @@ bar-progress-empty = ?
 bar-progress-empty-font = 3
 bar-progress-empty-foreground = #44
 
-[module/wireless-network]
+[module/wireless-network-laptop]
 type = internal/network
 interface = wlp5s0
+# interface = enp39s0  
+interval = 1.0
+ping-interval = 10
+
+format-connected = <label-connected>
+label-connected =  %local_ip%    %downspeed%     %upspeed%
+label-disconnected =    not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${bar/top.foreground}
+animation-packetloss-framerate = 500
+
+[module/wireless-network-battlestation]
+type = internal/network
+interface = enp39s0
 # interface = enp39s0  
 interval = 1.0
 ping-interval = 10

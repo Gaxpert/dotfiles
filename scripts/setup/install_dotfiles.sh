@@ -56,12 +56,21 @@ ln -s $path"/scripts" ~/.scripts
 rm ~/.config/sxhkd -r
 ln -s $path"/sxhkd" ~/.config/sxhkd
 
-#Vundle
-#rm ~/.vim/bundle/vim-snippets/UltiSnips -r
-#ln -s $path"/UltiSnips" ~/.vim/bundle/vim-snippets/UltiSnips
+rm ~/.config/sxiv -r
+ln -s $path"/sxiv" ~/.config/sxiv
+
+
 #Vim-plug
 rm ~/.vim/plugged/vim-snippets/Ultisnips -r
 ln -s $path"/UltiSnips" ~/.vim/plugged/vim-snippets/Ultisnips
+
+#applications / desktop files
+rm ~/.local/share/applications/sxiv.desktop
+ln -s $path"/applications/sxiv.desktop" ~/.local/share/applications
+
+rm ~/.local/share/applications/zathura.desktop
+ln -s $path"/applications/zathura.desktop" ~/.local/share/applications
+
 
 #Files
 rm ~/.profile
