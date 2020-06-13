@@ -148,7 +148,7 @@ bspc config gapless_monocle flase
 bspc rule -a "Zathura" state=tiled
 bspc rule -a Opera desktop=5
 bspc rule -a URxvt:Music desktop=8
-bspc rule -a URxvt:MusicVis desktop=8 
+bspc rule -a St:MusicVis desktop=8 
 bspc rule -a URxvt:TempD1 desktop=1 
 bspc rule -a Gnome-disks state=floating
 
