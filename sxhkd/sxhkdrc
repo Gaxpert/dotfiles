@@ -22,6 +22,8 @@ super + shift + o
 super + x
 	betterlockscreen -l dim
 # Keylayout
+super + shift + c
+	xdotool key Caps_Lock
 super + shift + p
 	~/.scripts/setPtCtrlNormal.sh
 super + shift + u
