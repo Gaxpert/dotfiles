@@ -24,8 +24,11 @@ set shellopts '-eu'
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
         text/*|application/json) $EDITOR "$f";;
-        video/*|image/*/application/pdf) xdg-open "$f" & disown;;
-        *) xdg-open "$f" ;;
+        video/*) pgrep mpv || devour "mpv --loop" "$f";;
+		image/*) pidof sxiv || devour sxiv "$f";;
+		# application/pdf) pidof zathura | devour zathura "$f";;
+		application/pdf) pidof zathura | devour zathura "$f" ;;
+        *) devour xdg-open "$f" ;;
     esac
 }}
 
@@ -83,13 +86,6 @@ cmd tarbz2 ${{
 #
 #
 # Custom Functions
-cmd open ${{
-    case $(file --mime-type "$f" -bL) in
-        text/*|application/json) vim "$f";;
-        video/*|image/*/application/pdf) xdg-open "$f" & disown;;
-        *) xdg-open "$f" ;;
-    esac
-}}
 
 
 cmd stripspace %~/.scripts/stripspace.sh "$f"

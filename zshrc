@@ -93,6 +93,7 @@ ivim(){
 #
 export GOPATH=$HOME/go
 export PATH=$PATH:/home/z/go/bin
+export PATH=$PATH:/home/z/.config/bin
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
 export PATH=$PATH:/home/z/Code/geckodriver
@@ -349,11 +350,14 @@ alias ga="git add "
 alias gc="git commit -a"
 alias gpull="git pull"
 alias gpush="git push"
+alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+
 
 #Extras
 alias pop="~/.scripts/launchOneTermScriptWrapper.sh "
 alias music="ncmpcpp"
 alias ccat='pygmentize -g '
+alias help='tldr -t base16'  # or ocean theme
 #
 #
 export KEYTIMEOUT=25 #Recomended for vi mode

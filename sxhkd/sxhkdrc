@@ -4,10 +4,10 @@
 
 #Terminals
 super + Return
-	urxvt
+	alacritty
 #Floating
 super + control + Return
-	st -n TempQ1
+	urxvt -name TempQ1
 
 #### System ####
 #Shutdown pc
@@ -192,7 +192,7 @@ super + control + bracketright
 
 #file manager
 super + bracketleft
-	urxvt -e zsh -c /home/z/go/bin/lf
+	alacritty -e /home/z/go/bin/lf
 super + control + bracketleft
 	nautilus
 
@@ -205,14 +205,14 @@ super + {9, 0, minus}
 XF86AudioMute
 	~/.scripts/pulsemixer_mute.sh
 XF86AudioLowerVolume
-	~/.scripts/pulsemixer_volume.sh -10
+	~/.scripts/pulsemixer_volume.sh -5
 XF86AudioRaiseVolume
-	~/.scripts/pulsemixer_volume.sh +10
+	~/.scripts/pulsemixer_volume.sh +5
 
 super + comma
-	~/.scripts/pulsemixer_volume.sh -10
+	~/.scripts/pulsemixer_volume.sh -5
 super + slash
-	~/.scripts/pulsemixer_volume.sh +10
+	~/.scripts/pulsemixer_volume.sh +5
 super + period 
 	~/.scripts/pulsemixer_mute.sh
 super + control + period

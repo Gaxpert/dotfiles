@@ -22,6 +22,8 @@ udiskie --no-automount --tray &
 #reset before applying 
 redshift -x
 redshift -l 38.7:-9.1  -t 5700:3600 -g 0.8 -m randr -v &
+# pidof bspswallow || bspswallow &
+
 
 #wal persist on reboot
 # wal -i "$(< "${HOME}/.cache/wal/wal")"
@@ -154,7 +156,7 @@ bspc rule -a Gnome-disks state=floating
 
 
 bspc rule -a URxvt:youtubi state=floating sticky=on rectangle=500x100+250+120
-bspc rule -a firefox sticky=on state=floating rectangle=930x1020+10+40
+# bspc rule -a firefox sticky=on state=floating rectangle=930x1020+10+40
 bspc rule -a KeePassXC sticky=on state=floating 
 #Temp terminals
 bspc rule -a St:TempQ1 state=floating rectangle=930x510+10+40

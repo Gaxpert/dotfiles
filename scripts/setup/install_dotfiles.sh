@@ -29,6 +29,9 @@ path=$1
 rm ~/.config/bspwm -r
 ln -s $path"/bspwm" ~/.config/bspwm
 
+rm ~/.config/alacritty -r
+ln -s $path"/alacritty" ~/.config/alacritty
+
 rm ~/.config/dunst -r
 ln -s $path"/dunst" ~/.config/dunst
 
