@@ -118,7 +118,8 @@ super + control + {Prior, Next}
 
 #Monocle mode
 super + f
-	bspc desktop -l next
+	~/.scripts/bspwm/crystal.sh 
+	# bspc desktop -l next
 	# ~/.scripts/bspwm/bspcleanmonocle
 super + shift + f
 	~/.scripts/bspwm/bspcleanfullscreen
@@ -163,7 +164,8 @@ super + control + y
 	bspc node focused.tiled -t pseudo_tiled || bspc node focused.pseudo_tiled -t tiled
 
 super + z
-	polybar-msg cmd toggle
+	~/go/src/spam_click/spam_click run & notify-send "Started clicking" 
+	# polybar-msg cmd toggle
 
 
 ##### Aplications ####

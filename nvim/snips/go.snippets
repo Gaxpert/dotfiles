@@ -114,6 +114,11 @@ if err != nil {
 }
 endsnippet
 
+snippet errp "Basic error handling" b
+if err != nil {
+	fmt.Println(err)
+}
+endsnippet
 # Libs
 ## Flags
 ## With flag package
@@ -334,5 +339,27 @@ endsnippet
 
 snippet regexFind "Find all matches"
 re1.FindAllString(${searchspace}, -1)
+endsnippet
+
+### Prints
+snippet pln "Println"
+fmt.Println($1)
+endsnippet
+
+snippet plne "Println"
+fmt.Println(err)
+endsnippet
+
+### File operations
+snippet fileappend "Append to file"
+f, err := os.OpenFile(${1:filename},
+	os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+if err != nil {
+	log.Println(err)
+}
+defer f.Close()
+if _, err := f.WriteString(${2:text_to_append}); err != nil {
+	log.Println(err)
+}
 endsnippet
 

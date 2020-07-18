@@ -85,26 +85,32 @@ Plug 'majutsushi/tagbar' " pacman ctags
 
 	""""""""""""""""""""""""""""""""""""""'
 	"  Autocomplete + snippets = supertab "
-	" """""""""""""""""""""""""""""""""""""
+	" """"""""""""""""""""""""""""""""""""
+	" Usee release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+source $HOME/.vim/plug-config/coc.vim
+	"
+	" 
 " Track the engine.
 Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-Plug 'ervandew/supertab'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
+" Plug 'ervandew/supertab'
+" Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
 " Plug 'valloric/youcompleteme' "yay vim-youcompleteme-git
 "go to .vim/bundle/youcompleteme ;   python3 install --all   (important,
 "install for used languages)
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+" let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+" let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
 " inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
 " inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 " inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Down>"
@@ -426,7 +432,11 @@ nnoremap <leader>dp8 :diffput 8<Return>
 nnoremap <leader>dp9 :diffput 9<Return>
 nnoremap <leader>du :diffupdate<Return>
 
-	"""""""""""""""""
+
+"Run
+nnoremap <leader>eg :GoRun<Return>
+
+"""""""""""""""""
 	"File Type Binds "
 	"""""""""""""""""
 "Python jupyter
@@ -467,6 +477,8 @@ syntax on
 " colo orbital
 colo gruvbox
 " colorscheme wal
+"
+" colo Default
 
 " For some reason AutoPairs gets some weird space keybinds. Untoggle them in
 " insert mode

@@ -97,7 +97,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 12
+  size: 14
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -430,7 +430,7 @@ key_bindings:
   # (Windows, Linux, and BSD only)
   # - { key: P,        mods: Control,       action: Paste            }
   - { key: Insert,   mods: Shift,         action: Paste            }
-  - { key: Slash,    mods: Control,       chars: "gc"              }
+ #  - { key: Slash,    mods: Control,       chars: "gc"              }
  #- { key: T,        mods: Control,       command: "alacritty"     }
   - { key: Y,        mods: Control,       action: Copy             }
   - { key: Key0,     mods: Control,       action: ResetFontSize    }

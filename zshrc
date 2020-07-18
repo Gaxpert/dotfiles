@@ -92,13 +92,14 @@ ivim(){
 #
 #
 export GOPATH=$HOME/go
-export PATH=$PATH:/home/z/go/bin
-export PATH=$PATH:/home/z/.config/bin
+export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/.config/bin
+export PATH=$PATH:$HOME/.local/bin
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
 export PATH=$PATH:/home/z/Code/geckodriver
 export PATH="$HOME/.cargo/bin:$PATH" 
-export EDITOR=vim
+export EDITOR=nvim
 
 ### Set/unset ZSH options
 #########################
@@ -337,6 +338,8 @@ alias mybackup_internal_hdd="~/.scripts/setup/backup_to_Data.sh"
 alias mybackup="~/.scripts/setup/backup_to_external.sh -o /run/media/Main"
 alias myrestore="~/.scripts/setup/restore_from_external.sh -o /run/media/Main -m ~/Musica"
 
+alias v=nvim
+alias f=lf
 
 
 alias cd1="cd .."
@@ -583,6 +586,8 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
+
+export STATUSBAR=polybar
 
 
 # neofetch
