@@ -23,12 +23,11 @@ while [ "$q" != "q" ]; do
 	read q
 	if [ "$q" != "q" ] && [ "$q" != "download" ] && [ "$q" != "ls" ]; then
 		echo "$q" >> $filename
-        i3-msg "[instance='youtubi'] move scratchpad"
 	fi
 	if [ "$q" == "download" ];then
 		yt
 		echo "Downloads completed"
-		~/.scripts/stripspaceFolder.sh "~/Musica/downloads"
+		# ~/.scripts/stripspaceFolder.sh "~/Musica/downloads"
 		read -n 1 -s
 	fi
 	if [ "$q" == "ls" ]; then
