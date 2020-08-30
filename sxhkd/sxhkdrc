@@ -71,7 +71,7 @@ super + control + {p, n}
 	bspc node -s {next, prev}.local
 
 #Send node to mon or desktop
-super + s; {s, a, d, q, w, e, 1, 2, 3, grave}
+super + s; {s, a, d, q, w, e, 1, 2, 3, grave,m}
 	{bspc node -m HDMI-0, \
 	bspc node -m DP-0, \
 	bspc node -m DP-2,\
@@ -81,7 +81,8 @@ super + s; {s, a, d, q, w, e, 1, 2, 3, grave}
 	bspc node -d 4,\
 	bspc node -d 5,\
 	bspc node -d 6, \
-	bspc node -d 7}
+	bspc node -d 7, \
+	bspc node -d 8}
 
 #### Node Control ####
 # Focus on window in direction
@@ -118,8 +119,8 @@ super + control + {Prior, Next}
 
 #Monocle mode
 super + f
-	~/.scripts/bspwm/crystal.sh 
-	# bspc desktop -l next
+	bspc desktop -l next
+	# ~/.scripts/bspwm/crystal.sh 
 	# ~/.scripts/bspwm/bspcleanmonocle
 super + shift + f
 	~/.scripts/bspwm/bspcleanfullscreen

@@ -49,11 +49,13 @@ redshift -l 38.7:-9.1  -t 5700:3600 -g 0.8 -m randr -v &
 	 # wal -R -n -q 
 
  elif [[ $(hostname) == 'Battlestation' ]]; then
-	 ~/.scripts/screenlayout.sh &
+	 # ~/.scripts/screenlayout.sh &
+	 ~/.screenlayout/1mon.sh &
 	 ~/.config/polybar/launch_desktop.sh &
 	 #change trackball buttons
 	xinput set-button-map `xinput list | grep Trackball | cut -d "=" -f 2 | cut -c-2` 3 2 1
-	feh --bg-scale $BACKGROUND_MON_1 $BACKGROUND_MON_2 $BACKGROUND_MON_3 &
+	# feh --bg-scale $BACKGROUND_MON_1 $BACKGROUND_MON_2 $BACKGROUND_MON_3 &
+	feh --bg-scale $BACKGROUND_MON_1 &
 
  elif [[ $(hostname) == 'c3po' ]]; then
 	feh --bg-scale /home/z/.scripts/setup/resources/Arch2.jpg
@@ -76,9 +78,12 @@ redshift -l 38.7:-9.1  -t 5700:3600 -g 0.8 -m randr -v &
 	 bsp-layout set tall 5
 	 bsp-layout set tall 6
  elif [[ $(hostname) == 'Battlestation' ]]; then
-	 bspc monitor HDMI-0 -d 2 5 7 8
-     bspc monitor DP-0 -d 1 4
-     bspc monitor DP-2 -d 3 6 9 
+
+	 # bspc monitor HDMI-0 -d 2 5 7 8
+     # bspc monitor DP-0 -d 1 4
+     # bspc monitor DP-2 -d 3 6 9 
+
+     bspc monitor HDMI-0 -d 1 2 3 4 5 6 7 8 9
 
 	 bsp-layout set even 1
 	 bsp-layout set tall 2
@@ -149,6 +154,7 @@ bspc config gapless_monocle false
 ###---Rules---###
 bspc rule -a "Zathura" state=tiled
 bspc rule -a Opera desktop=5
+bspc rule -a Spotify desktop=8
 bspc rule -a URxvt:Music desktop=8
 bspc rule -a St:MusicVis desktop=8 
 bspc rule -a URxvt:TempD1 desktop=1 

@@ -95,6 +95,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.config/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:/root/.local/bin
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
 export PATH=$PATH:/home/z/Code/geckodriver
@@ -348,7 +349,7 @@ alias cd3="cd ../../.."
 alias cd4="cd ../../../.."
 
 #Git alias
-alias gs="git status"
+# alias gs="git status"
 alias ga="git add "
 alias gc="git commit -a"
 alias gpull="git pull"
@@ -361,6 +362,7 @@ alias pop="~/.scripts/launchOneTermScriptWrapper.sh "
 alias music="ncmpcpp"
 alias ccat='pygmentize -g '
 alias help='tldr -t base16'  # or ocean theme
+alias yt-playlist='youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s" --yes-playlist '
 #
 #
 export KEYTIMEOUT=25 #Recomended for vi mode

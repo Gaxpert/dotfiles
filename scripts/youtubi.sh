@@ -10,7 +10,7 @@ filename=~/Musica/youtubi.txt
 yt(){
 	cd ~/Musica/downloads
 	while read p; do
-		youtube-dl --extract-audio --audio-format mp3 $p
+		youtube-dl --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s" --yes-playlist $p
 	done<$filename
 	rm $filename
 	touch $filename
